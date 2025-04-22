@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Alumnos</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Gestión de Alumnos</h1>
+    </header>
+    <section>
+        <h2>Listado de Alumnos</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Grupo</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="alumno : ${alumnos}">
+                    <td th:text="${alumno.idAlumno}">ID</td>
+                    <td th:text="${alumno.nombre_Alumno}">Nombre</td>
+                    <td th:text="${alumno.grupo}">Grupo</td>
+                    <td>
+                        <a th:href="@{/vistas/alumnos/editar/{id}(id=${alumno.idAlumno})}">Editar</a> |
+                        <a th:href="@{/vistas/alumnos/eliminar/{id}(id=${alumno.idAlumno})}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/vistas/alumnos/crear"><button>Crear Nuevo Alumno</button></a>
+    </section>
+</body>
+</html>

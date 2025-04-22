@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Alumno</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Crear Alumno</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/alumnos/crear}" th:object="${alumno}" method="post">
+            <div>
+                <label>ID:</label>
+                <input type="text" th:field="*{idAlumno}" />
+            </div>
+            <div>
+                <label>Nombre:</label>
+                <input type="text" th:field="*{nombre_Alumno}" />
+            </div>
+            <div>
+                <label>Grupo:</label>
+                <input type="text" th:field="*{grupo}" />
+            </div>
+            <div>
+                <label>Curso:</label>
+                <select name="cursoId">
+                    <option value="" disabled selected>Seleccione un curso</option>
+                    <option th:each="curso : ${cursos}"
+                            th:value="${curso.idCurso}"
+                            th:text="${curso.nombre}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/alumnos"><button>Volver a la Lista</button></a>
+    </section>
+</body>
+</html>

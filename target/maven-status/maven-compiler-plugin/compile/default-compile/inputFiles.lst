@@ -4,6 +4,7 @@
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/CursoRepositorio.java
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/DepartamentoAcademicoServicioImpl.java
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Alumno.java
+/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/AlumnoVistaControlador.java
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/AsignaturaServicio.java
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Tema.java
 /home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/ExamenPracticoServicio.java
