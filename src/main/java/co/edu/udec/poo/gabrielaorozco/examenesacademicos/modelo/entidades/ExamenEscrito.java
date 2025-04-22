@@ -20,7 +20,6 @@ import lombok.Setter;
 @Data
 @Entity
 @Table(name = "examen_escrito", schema = "public")
-@PrimaryKeyJoinColumn(name = "id_examen")
 public class ExamenEscrito extends Examen {
     
     @Column(name = "numero_preguntas")

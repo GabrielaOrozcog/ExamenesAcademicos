@@ -21,6 +21,7 @@ import lombok.Setter;
 @Setter
 @Data
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name= "examen", schema = "public")
 public class Examen {
 	
