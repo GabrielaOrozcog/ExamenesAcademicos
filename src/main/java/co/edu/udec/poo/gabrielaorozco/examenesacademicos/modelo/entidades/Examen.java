@@ -25,9 +25,9 @@ import lombok.Setter;
 public class Examen {
 	
 	@Id
-	@NotEmpty(message = "el id de alumno no puede estar vacio o ser nulo")
-	@Column(name="id_alumno")
-	private int idAlumno;
+        @NotEmpty(message = "El id del examen no puede estar vacío")
+        @Column(name = "id_examen")
+        private int idExamen;
         
         @ManyToOne
         @JoinColumn(name = "id_alumno", nullable = false)

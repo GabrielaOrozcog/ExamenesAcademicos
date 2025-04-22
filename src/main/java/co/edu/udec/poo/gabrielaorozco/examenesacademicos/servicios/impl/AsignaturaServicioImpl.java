@@ -7,17 +7,19 @@ package co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Asignatura;
-import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.AsignaturaCrud.AsignaturaRepository;
+import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.repositorio.AsignaturaRepositorio;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.AsignaturaServicio;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author Gabriela
  */
+@Service
 public class AsignaturaServicioImpl implements AsignaturaServicio {
     
     @Autowired
-    private AsignaturaRepository asignaturaRepository;
+    private AsignaturaRepositorio asignaturaRepository;
     
     @Override
     public List<Asignatura> getAllAsignaturas() {

@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.ExamenPractico;
-import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.ExamenPracticoCrud.ExamenPracticoRepository;
+import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.repositorio.ExamenPracticoRepositorio;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ExamenPracticoServicio;
 
 /**
@@ -19,7 +19,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ExamenPractic
 @Service
 public class ExamenPracticoServicioImpl implements ExamenPracticoServicio{
     @Autowired
-    private ExamenPracticoRepository examenPracticoRepository;
+    private ExamenPracticoRepositorio examenPracticoRepository;
     
     @Override
     public List<ExamenPractico> getAllExamenesPracticos() {

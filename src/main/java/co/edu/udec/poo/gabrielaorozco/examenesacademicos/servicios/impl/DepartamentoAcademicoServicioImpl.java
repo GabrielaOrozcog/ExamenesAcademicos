@@ -7,8 +7,7 @@ package co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Profesor;
-import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.DepartamentoAcademicoCrud.DepartamentoAcademicoRepository;
+import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.repositorio.DepartamentoAcademicoRepositorio;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.DepartamentoAcademico;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.DepartamentoAcademicoServicio;
 
@@ -17,10 +16,11 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.DepartamentoA
  * @author Gabriela
  */
 
+@Service
 public class DepartamentoAcademicoServicioImpl implements DepartamentoAcademicoServicio {
     
     @Autowired
-    private DepartamentoAcademicoRepository departamentoAcademicoRepository;
+    private DepartamentoAcademicoRepositorio departamentoAcademicoRepository;
 
     @Override
     public List<DepartamentoAcademico> getAllDepartamentoAcademicos() {
