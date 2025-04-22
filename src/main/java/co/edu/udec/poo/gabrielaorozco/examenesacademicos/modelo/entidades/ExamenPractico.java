@@ -19,7 +19,6 @@ import lombok.Setter;
 @Data
 @Entity
 @Table(name = "examen_practico", schema = "public")
-@PrimaryKeyJoinColumn(name = "id_examen")
 public class ExamenPractico extends Examen {
     
     @NotEmpty(message = "La descripción no puede estar vacía o ser nula")

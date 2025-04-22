@@ -6,6 +6,7 @@ package co.edu.udec.poo.gabrielaorozco.examenesacademicos;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  *
@@ -13,8 +14,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @SpringBootApplication
+@EnableJpaRepositories(basePackages = "co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.repositorio")
 public class ExamenesAcademicos {
-
     public static void main(String[] args) {
         SpringApplication.run(ExamenesAcademicos.class, args);
     }

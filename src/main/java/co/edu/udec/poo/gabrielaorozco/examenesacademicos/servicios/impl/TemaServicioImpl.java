@@ -8,7 +8,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Tema;
-import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.TemaCrud.TemaRepository;
+import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.crud.repositorio.TemaRepositorio;
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.TemaServicio;
 
 /**
@@ -19,7 +19,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.TemaServicio;
 public class TemaServicioImpl implements TemaServicio {
     
     @Autowired
-    private TemaRepository temaRepository;
+    private TemaRepositorio temaRepository;
 
     @Override
     public List<Tema> getAllTemas() {

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Alumno</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Editar Alumno</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/alumnos/editar/{id}(id=${alumno.idAlumno})}" th:object="${alumno}" method="post">
+            <div>
+                <label>ID:</label>
+                <input type="text" th:field="*{idAlumno}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Nombre:</label>
+                <input type="text" th:field="*{nombre_Alumno}" />
+            </div>
+            <div>
+                <label>Grupo:</label>
+                <input type="text" th:field="*{grupo}" />
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/alumnos"><button>Volver a la Lista</button></a>
+    </section>
+</body>
+</html>
