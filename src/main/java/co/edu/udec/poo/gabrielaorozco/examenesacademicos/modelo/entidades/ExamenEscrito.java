@@ -35,7 +35,7 @@ public class ExamenEscrito extends Examen {
     @Override
     public double calcularNotaFinal() {
         double finalNota = (getComponenteTeorico() + getComponenteRedaccion()) / 2.0;
-        System.out.println("ExamenEscrito final note calculated: " + finalNota);
+        System.out.println("ExamenEscrito final nota calculada: " + finalNota);
         return finalNota;
     }
 }

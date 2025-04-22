@@ -42,7 +42,7 @@ public class ExamenPractico extends Examen {
     @Override
     public double calcularNotaFinal() {
         double finalNota = (getComponenteLaboratorio() * 0.6) + (getComponenteEficiencia() * 0.4);
-        System.out.println("ExamenPractico final note calculated: " + finalNota);
+        System.out.println("ExamenPractico nota final calculada: " + finalNota);
         return finalNota;
     }
 }

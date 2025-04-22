@@ -73,8 +73,8 @@ public class Profesor {
                    inverseJoinColumns = @JoinColumn(name = "id_curso"))
         private List<Curso> cursos;
         
-        public void diseñarPractica() {
-        System.out.println("Profesor " + this.nombre_Profesor + " is designing a new practice.");
+        public void diseniarPractica() {
+        System.out.println("Profesor " + this.nombre_Profesor + " esta diseñando una nueva practica.");
         }
         
     /**
@@ -83,13 +83,13 @@ public class Profesor {
      * @param nivelDificultad
      * @return
      */
-    public Practica diseñarPractica(String titulo, String nivelDificultad) {
+    public Practica diseniarPractica(String titulo, String nivelDificultad) {
         Practica practica = new Practica();
         practica.setTitulo(titulo);
         practica.setNivelDificultadPractica(nivelDificultad);
         practica.setFechaCreacion(new Date());
         practicas.add(practica);
-        System.out.println("Profesor " + this.nombre_Profesor + " designed a new practice: " + titulo);
+        System.out.println("Profesor " + this.nombre_Profesor + " diseño una nueva practica: " + titulo);
         return practica;
         }
 
