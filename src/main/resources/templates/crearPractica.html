@@ -3,49 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Práctica</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Crear Práctica</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Crear Práctica</h1>
     </header>
-    <section>
+    <section class="container">
         <form th:action="@{/vistas/practicas/crear}" th:object="${practica}" method="post">
-            <div>
-                <label>ID Practica:</label>
-                <input type="text" th:field="*{idPractica}" placeholder="Ingrese el ID de la práctica" />
+            <div class="mb-3">
+                <label for="idPractica" class="form-label">ID Práctica</label>
+                <input type="text" id="idPractica" th:field="*{idPractica}" class="form-control" placeholder="Ingrese el ID" required>
             </div>
-            <div>
-                <label>Título:</label>
-                <input type="text" th:field="*{titulo}" placeholder="Ingrese el título" />
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Título</label>
+                <input type="text" id="titulo" th:field="*{titulo}" class="form-control" placeholder="Ingrese el título" required>
             </div>
-            <div>
-                <label>Fecha de Creación:</label>
-                <input type="date" th:field="*{fechaCreacion}" />
+            <div class="mb-3">
+                <label for="fechaCreacion" class="form-label">Fecha de Creación</label>
+                <input type="date" id="fechaCreacion" th:field="*{fechaCreacion}" class="form-control" required>
             </div>
-            <div>
-                <label>Nivel de Dificultad:</label>
-                <input type="text" th:field="*{nivelDificultadPractica}" placeholder="Ingrese el nivel de dificultad" />
+            <div class="mb-3">
+                <label for="nivelDificultad" class="form-label">Nivel de Dificultad</label>
+                <input type="text" id="nivelDificultad" th:field="*{nivelDificultadPractica}" class="form-control" placeholder="Ingrese el nivel" required>
             </div>
-            <!-- Selección de profesores -->
-            <div>
-                <label>Profesores:</label>
-                <select name="profesoresSeleccionados" multiple="multiple">
-                    <option th:each="profesor : ${listaProfesores}"
-                            th:value="${profesor.idProfesor}"
-                            th:text="${profesor.nombre}">
+            <div class="mb-3">
+                <label for="profesores" class="form-label">Profesores Asociados</label>
+                <select id="profesores" name="profesoresSeleccionados" multiple class="form-select">
+                    <option th:each="profesor : ${listaProfesores}" th:value="${profesor.idProfesor}" th:text="${profesor.nombre_Profesor}">
                     </option>
                 </select>
+                <small class="form-text text-muted">Seleccione uno o más profesores</small>
             </div>
-            <div>
-                <button type="submit">Guardar</button>
-            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="/vistas/practicas" class="btn btn-secondary">Cancelar</a>
         </form>
-        <br/>
-        <a href="/vistas/practicas">
-            <button>Volver a la Lista</button>
-        </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 

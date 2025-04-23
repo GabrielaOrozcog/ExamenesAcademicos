@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Práctica</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Editar Práctica</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/practicas/editar/{id}(id=${practica.idPractica})}" th:object="${practica}" method="post">
+            <div>
+                <label>ID Practica:</label>
+                <input type="text" th:field="*{idPractica}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Título:</label>
+                <input type="text" th:field="*{titulo}" />
+            </div>
+            <div>
+                <label>Fecha de Creación:</label>
+                <input type="date" th:field="*{fechaCreacion}" />
+            </div>
+            <div>
+                <label>Nivel de Dificultad:</label>
+                <input type="text" th:field="*{nivelDificultadPractica}" />
+            </div>
+            <!-- Selección de profesores -->
+            <div>
+                <label>Profesores:</label>
+                <select name="profesoresSeleccionados" multiple="multiple">
+                    <option th:each="profesor : ${listaProfesores}"
+                            th:value="${profesor.idProfesor}"
+                            th:text="${profesor.nombre}"
+                            th:selected="${#lists.contains(practica.profesores, profesor)}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/practicas">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>

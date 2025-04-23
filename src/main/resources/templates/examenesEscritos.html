@@ -1,50 +1,58 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Listado de Exámenes Escritos</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Exámenes Escritos</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Listado de Exámenes Escritos</h1>
     </header>
-    <section>
-        <h2>Listado</h2>
-        <table border="1">
+    <section class="container">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID Examen</th>
-                    <th>Fecha Realización</th>
+                    <th>Alumno (ID)</th>
                     <th>Grupo</th>
-                    <th>Número de Preguntas</th>
-                    <th>Componente Teórico</th>
-                    <th>Componente Redacción</th>
-                    <th>Nota Final</th>
+                    <th>Profesor (ID)</th>
+                    <th>Fecha Realización</th>
+                    <th>Tipo Examen</th>
+                    <th>Asignatura (ID)</th>
+                    <th># Preguntas</th>
+                    <th>Teórico</th>
+                    <th>Redacción</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="examen : ${examenes}">
+                <tr th:each="examen : ${examenesEscritos}">
                     <td th:text="${examen.idExamen}">ID</td>
-                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}">Fecha</td>
+                    <td th:text="${examen.alumno != null ? examen.alumno.idAlumno : 'N/A'}">Alumno</td>
                     <td th:text="${examen.grupo}">Grupo</td>
+                    <td th:text="${examen.profesor != null ? examen.profesor.idProfesor : 'N/A'}">Profesor</td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}">Fecha</td>
+                    <td th:text="${examen.tipoExamen}">Tipo</td>
+                    <td th:text="${examen.asignatura != null ? examen.asignatura.idAsignatura : 'N/A'}">Asignatura</td>
                     <td th:text="${examen.numeroPreguntas}"># Preguntas</td>
-                    <td th:text="${examen.componenteTeorico}">Componente Teórico</td>
-                    <td th:text="${examen.componenteRedaccion}">Componente Redacción</td>
-                    <td th:text="${examen.calcularNotaFinal()}">Nota Final</td>
+                    <td th:text="${examen.componenteTeorico}">Teórico</td>
+                    <td th:text="${examen.componenteRedaccion}">Redacción</td>
                     <td>
-                        <a th:href="@{'/vistas/examenes-escritos/editar/' + ${examen.idExamen}}">Editar</a> |
-                        <a th:href="@{'/vistas/examenes-escritos/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+                        <a th:href="@{'/vistas/examenes-escritos/editar/' + ${examen.idExamen}}" class="btn btn-primary btn-sm">Editar</a>
+                        <a th:href="@{'/vistas/examenes-escritos/eliminar/' + ${examen.idExamen}}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <br/>
         <a href="/vistas/examenes-escritos/crear">
-            <button>Crear Nuevo Examen Escrito</button>
+            <button type="button" class="btn btn-success">Crear Nuevo Examen</button>
         </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+

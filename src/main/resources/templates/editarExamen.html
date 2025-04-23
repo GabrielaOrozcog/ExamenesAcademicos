@@ -3,55 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Examen</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
+    <!-- Bootstrap CSS desde CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <header>
-        <h1>Editar Examen</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Editar Examen</h1>
     </header>
-    <section>
+    <section class="container">
         <form th:action="@{/vistas/examenes/editar/{id}(id=${examen.idExamen})}" th:object="${examen}" method="post">
-            <div>
-                <label>ID Examen:</label>
-                <input type="text" th:field="*{idExamen}" readonly="readonly" />
+            <div class="mb-3">
+                <label for="idExamen" class="form-label">ID Examen</label>
+                <input type="text" id="idExamen" th:field="*{idExamen}" class="form-control" readonly>
             </div>
-            <div>
-                <label>Alumno (ID):</label>
-                <input type="text" th:field="*{alumno.idAlumno}" placeholder="Ingrese el ID del alumno" />
+            <div class="mb-3">
+                <label for="alumno" class="form-label">Alumno</label>
+                <select id="alumno" th:field="*{alumno.idAlumno}" class="form-select" required>
+                    <option value="" disabled selected>Seleccione un alumno</option>
+                    <option th:each="alumno : ${listaAlumnos}" th:value="${alumno.idAlumno}" th:text="${alumno.nombre_Alumno}">
+                    </option>
+                </select>
             </div>
-            <div>
-                <label>Grupo:</label>
-                <input type="text" th:field="*{grupo}" />
-            </div>
-            <div>
-                <label>Profesor (ID):</label>
-                <input type="text" th:field="*{profesor.idProfesor}" placeholder="Ingrese el ID del profesor" />
-            </div>
-            <div>
-                <label>Fecha de Realización:</label>
-                <input type="date" th:field="*{fechaRealizacion}" />
-            </div>
-            <div>
-                <label>Fecha de Creación:</label>
-                <input type="date" th:field="*{fechaCreacionExamen}" />
-            </div>
-            <div>
-                <label>Tipo de Examen:</label>
-                <input type="text" th:field="*{tipoExamen}" />
-            </div>
-            <div>
-                <label>Asignatura (ID):</label>
-                <input type="text" th:field="*{asignatura.idAsignatura}" />
-            </div>
-            <div>
-                <button type="submit">Actualizar</button>
-            </div>
-        </form>
-        <br/>
-        <a href="/vistas/examenes">
-            <button>Volver a la Lista</button>
-        </a>
-    </section>
-</body>
-</html>
-
+            <div class="mb-3">
+                <label for

@@ -3,46 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Examen Escrito</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Crear Examen Escrito</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Crear Examen Escrito</h1>
     </header>
-    <section>
+    <section class="container">
         <form th:action="@{/vistas/examenes-escritos/crear}" th:object="${examenEscrito}" method="post">
-            <div>
-                <label>ID Examen:</label>
-                <input type="text" th:field="*{idExamen}" placeholder="Ingrese el ID" />
+            <div class="mb-3">
+                <label for="idExamen" class="form-label">ID Examen</label>
+                <input type="text" id="idExamen" th:field="*{idExamen}" class="form-control" placeholder="Ingrese el ID" required>
             </div>
-            <div>
-                <label>Fecha de Realización:</label>
-                <input type="date" th:field="*{fechaRealizacion}" placeholder="YYYY-MM-DD" />
+            <div class="mb-3">
+                <label for="alumno" class="form-label">Alumno</label>
+                <select id="alumno" th:field="*{alumno.idAlumno}" class="form-select" required>
+                    <option value="" disabled selected>Seleccione un alumno</option>
+                    <option th:each="alumno : ${listaAlumnos}" th:value="${alumno.idAlumno}" th:text="${alumno.nombre_Alumno}">
+                    </option>
+                </select>
             </div>
-            <div>
-                <label>Grupo:</label>
-                <input type="text" th:field="*{grupo}" placeholder="Ingrese el grupo" />
+            <div class="mb-3">
+                <label for="grupo" class="form-label">Grupo</label>
+                <input type="text" id="grupo" th:field="*{grupo}" class="form-control" required>
             </div>
-            <div>
-                <label>Número de Preguntas:</label>
-                <input type="number" th:field="*{numeroPreguntas}" placeholder="Cantidad de preguntas" />
+            <div class="mb-3">
+                <label for="profesor" class="form-label">Profesor</label>
+                <select id="profesor" th:field="*{profesor.idProfesor}" class="form-select" required>
+                    <option value="" disabled selected>Seleccione un profesor</option>
+                    <option th:each="profesor : ${listaProfesores}" th:value="${profesor.idProfesor}" th:text="${profesor.nombre_Profesor}">
+                    </option>
+                </select>
             </div>
-            <div>
-                <label>Componente Teórico:</label>
-                <input type="text" th:field="*{componenteTeorico}" placeholder="Valor teórico" />
+            <div class="mb-3">
+                <label for="numeroPreguntas" class="form-label">Número de Preguntas</label>
+                <input type="number" id="numeroPreguntas" th:field="*{numeroPreguntas}" class="form-control" required>
             </div>
-            <div>
-                <label>Componente Redacción:</label>
-                <input type="text" th:field="*{componenteRedaccion}" placeholder="Valor redacción" />
+            <div class="mb-3">
+                <label for="componenteTeorico" class="form-label">Componente Teórico</label>
+                <input type="number" step="0.01" id="componenteTeorico" th:field="*{componenteTeorico}" class="form-control" required>
             </div>
-            <div>
-                <button type="submit">Guardar</button>
+            <div class="mb-3">
+                <label for="componenteRedaccion" class="form-label">Componente Redacción</label>
+                <input type="number" step="0.01" id="componenteRedaccion" th:field="*{componenteRedaccion}" class="form-control" required>
             </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="/vistas/examenes-escritos" class="btn btn-secondary">Cancelar</a>
         </form>
-        <br/>
-        <a href="/vistas/examenes-escritos">
-            <button>Volver a la Lista</button>
-        </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
