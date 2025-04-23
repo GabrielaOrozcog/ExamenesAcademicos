@@ -30,7 +30,7 @@ public class AlumnoVistaControlador {
     @GetMapping
     public String listarAlumnos(Model model) {
         model.addAttribute("alumnos", alumnoServicio.getAllAlumnos());
-        return "alumnos"; // nombre de la vista (template) sin extensión
+        return "alumnos"; 
     }
 
 
