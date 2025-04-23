@@ -15,8 +15,7 @@ import lombok.Setter;
 * @author Gabriela
 * */
 
-@Getter
-@Setter
+
 @Data
 @Entity
 @Table(name= "alumno", schema = "public")
