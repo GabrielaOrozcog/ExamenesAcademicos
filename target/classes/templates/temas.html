@@ -6,20 +6,19 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Temas</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Listado de Temas</h1>
     </header>
-    <section>
-        <h2>Listado de Temas</h2>
-        <table border="1">
+    <section class="container">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID Tema</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
                     <th>Recursos</th>
-                    <th>Nivel Dificultad</th>
-                    <th>Asignatura</th>
+                    <th>Nivel de Dificultad</th>
+                    <th>Asignatura (ID)</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -29,21 +28,24 @@
                     <td th:text="${tema.nombreTema}">Nombre</td>
                     <td th:text="${tema.descripcionTema}">Descripción</td>
                     <td th:text="${tema.recursos}">Recursos</td>
-                    <td th:text="${tema.nivelDificultadTema}">Nivel</td>
-                    <!-- Si la asignatura está disponible se muestra su nombre, de lo contrario se muestra 'N/A' -->
-                    <td th:text="${tema.asignatura != null ? tema.asignatura.nombre : 'N/A'}">Asignatura</td>
+                    <td th:text="${tema.nivelDificultadTema}">Dificultad</td>
+                    <td th:text="${tema.asignatura != null ? tema.asignatura.idAsignatura : 'N/A'}">Asignatura</td>
                     <td>
-                        <a th:href="@{'/vistas/temas/editar/' + ${tema.id_Tema}}">Editar</a> |
-                        <a th:href="@{'/vistas/temas/eliminar/' + ${tema.id_Tema}}">Eliminar</a>
+                        <a th:href="@{'/vistas/temas/editar/' + ${tema.id_Tema}}" class="btn btn-primary btn-sm">Editar</a>
+                        <a th:href="@{'/vistas/temas/eliminar/' + ${tema.id_Tema}}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <br>
         <a href="/vistas/temas/crear">
-            <button>Crear Nuevo Tema</button>
+            <button type="button" class="btn btn-success">Crear Nuevo Tema</button>
         </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
