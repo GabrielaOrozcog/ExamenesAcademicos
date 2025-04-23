@@ -11,6 +11,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Tema;
  *
  * @author Gabriela
  */
+
 public interface TemaServicio {
     
     List<Tema> getAllTemas();

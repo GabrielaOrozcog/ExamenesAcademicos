@@ -11,6 +11,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Profes
  *
  * @author Gabriela
  */
+
 public interface ProfesorServicio {
     
     List<Profesor> getAllProfesores();

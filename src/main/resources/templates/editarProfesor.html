@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Profesor</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Editar Profesor</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/profesores/editar/{id}(id=${profesor.id_Profesor})}" th:object="${profesor}" method="post">
+            <div>
+                <label>ID Profesor:</label>
+                <input type="text" th:field="*{id_Profesor}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Nombre Profesor:</label>
+                <input type="text" th:field="*{nombre_Profesor}" />
+            </div>
+            <div>
+                <label>Email Profesor:</label>
+                <input type="email" th:field="*{email_Profesor}" />
+            </div>
+            <div>
+                <label>Teléfono:</label>
+                <input type="number" th:field="*{telefono_Profesor}" />
+            </div>
+            <div>
+                <label>Cargo:</label>
+                <input type="text" th:field="*{cargo}" />
+            </div>
+            <div>
+                <label>Departamento Académico (ID):</label>
+                <input type="text" th:field="*{departamentoAcademico.idDepartamentoAcademico}" />
+            </div>
+            <div>
+                <label>Fecha Inicio Contrato:</label>
+                <input type="date" th:field="*{fecha_InicioContrato}" />
+            </div>
+            <div>
+                <label>Fecha Fin Contrato:</label>
+                <input type="date" th:field="*{fecha_FinContrato}" />
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br>
+        <a href="/vistas/profesores">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>

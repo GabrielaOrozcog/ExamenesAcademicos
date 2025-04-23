@@ -13,8 +13,9 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ProfesorServi
 
 /**
  *
- * @author torrestr
+ * @author Gabriela
  */
+
 @Service
 public class ProfesorServicioImpl implements ProfesorServicio {
 

@@ -14,7 +14,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Asigna
 import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.AsignaturaServicio;
 /**
  *
- * @author torrestr
+ * @author Gabriela
  */
 @RestController
 @RequestMapping("/api/asignaturas")

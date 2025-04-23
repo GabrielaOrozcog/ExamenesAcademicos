@@ -15,7 +15,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ProfesorServi
 
 /**
  *
- * @author torrestr
+ * @author Gabriela
  */
 @RestController
 @RequestMapping("/api/profesores")

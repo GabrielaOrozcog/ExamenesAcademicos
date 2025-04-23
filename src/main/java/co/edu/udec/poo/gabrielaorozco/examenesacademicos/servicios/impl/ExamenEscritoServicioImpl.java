@@ -13,7 +13,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ExamenEscrito
 
 /**
  *
- * @author torrestr
+ * @author Gabriela
  */
 @Service
 public class ExamenEscritoServicioImpl implements ExamenEscritoServicio {

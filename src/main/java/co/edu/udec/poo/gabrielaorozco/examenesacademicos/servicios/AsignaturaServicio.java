@@ -11,6 +11,7 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Asigna
  *
  * @author Gabriela
  */
+
 public interface AsignaturaServicio {
     
     List<Asignatura> getAllAsignaturas();

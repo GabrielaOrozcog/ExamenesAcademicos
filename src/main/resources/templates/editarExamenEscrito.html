@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Examen Escrito</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Editar Examen Escrito</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/examenes-escritos/editar/{id}(id=${examenEscrito.idExamen})}" th:object="${examenEscrito}" method="post">
+            <div>
+                <label>ID Examen:</label>
+                <input type="text" th:field="*{idExamen}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Fecha de Realización:</label>
+                <input type="text" th:field="*{fechaRealizacion}" placeholder="YYYY-MM-DD" />
+            </div>
+            <div>
+                <label>Grupo:</label>
+                <input type="text" th:field="*{grupo}" />
+            </div>
+            <div>
+                <label>Número de Preguntas:</label>
+                <input type="number" th:field="*{numeroPreguntas}" />
+            </div>
+            <div>
+                <label>Componente Teórico:</label>
+                <input type="text" th:field="*{componenteTeorico}" />
+            </div>
+            <div>
+                <label>Componente Redacción:</label>
+                <input type="text" th:field="*{componenteRedaccion}" />
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/examenes-escritos">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
