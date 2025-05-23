@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+<<<<<<< HEAD
     <meta charset="UTF-8">
     <title>Lista de Asignaturas</title>
     <link rel="stylesheet" href="/css/estilos.css" />
@@ -38,3 +39,54 @@
 </body>
 </html>
 
+=======
+  <meta charset="UTF-8">
+  <title>Listado de Asignaturas</title>
+  <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+  <header class="mb-3">
+      <h1 class="text-center">Listado de Asignaturas</h1>
+  </header>
+  <section class="container">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Curso (ID)</th>
+                  <th>Nombre</th>
+                  <th>Créditos</th>
+                  <th>Descripción</th>
+                  <th>Año Académico</th>
+                  <th>Semestre</th>
+                  <th>Horario</th>
+                  <th>Acciones</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr th:each="asignatura : ${asignaturas}">
+                  <td th:text="${asignatura.idAsignatura}">ID</td>
+                  <!-- Se asume que curso se referencia por su id -->
+                  <td th:text="${asignatura.curso != null ? asignatura.curso.idCurso : 'N/A'}">Curso</td>
+                  <td th:text="${asignatura.nombreAsignatura}">Nombre</td>
+                  <td th:text="${asignatura.creditos}">Créditos</td>
+                  <td th:text="${asignatura.descripcionAsignatura}">Descripción</td>
+                  <td th:text="${asignatura.anioAcademico}">Año</td>
+                  <td th:text="${asignatura.semestre}">Semestre</td>
+                  <td th:text="${asignatura.horario}">Horario</td>
+                  <td>
+                      <a th:href="@{'/vistas/asignaturas/editar/' + ${asignatura.idAsignatura}}" class="btn btn-primary btn-sm">Editar</a>
+                      <a th:href="@{'/vistas/asignaturas/eliminar/' + ${asignatura.idAsignatura}}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+      <a href="/vistas/asignaturas/crear">
+          <button type="button" class="btn btn-success">Crear Nueva Asignatura</button>
+      </a>
+  </section>
+</body>
+</html>
+
+
+>>>>>>> 9851603 (add Vistas, ttemplates and css)

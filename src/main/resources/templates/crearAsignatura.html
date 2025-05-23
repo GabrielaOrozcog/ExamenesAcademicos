@@ -1,34 +1,110 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Crear Asignatura</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+  <meta charset="UTF-8">
+  <title>Crear Asignatura</title>
+  <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Crear Asignatura</h1>
-    </header>
-    <section>
-        <form th:action="@{/vistas/asignaturas/crear}" th:object="${asignatura}" method="post">
-            <div>
-                <label>ID:</label>
-                <input type="text" th:field="*{idAsignatura}" />
-            </div>
-            <div>
-                <label>Nombre:</label>
-                <input type="text" th:field="*{nombre}" />
-            </div>
-            <div>
-                <label>Descripción:</label>
-                <textarea th:field="*{descripcion}" rows="4"></textarea>
-            </div>
-            <div>
-                <button type="submit">Guardar</button>
-            </div>
+  <header class="mb-3">
+      <h1 class="text-center">Crear Asignatura</h1>
+  </header>
+  <section class="container">
+      <form th:action="@{/vistas/asignaturas/crear}" th:object="${asignatura}" method="post">
+          <div class="mb-3">
+              <label for="nombreAsignatura" class="form-label">Nombre de la Asignatura</label>
+              <input type="text" id="nombreAsignatura" th:field="*{nombreAsignatura}" class="form-control" placeholder="Ingrese el nombre">
+          </div>
+          <div class="mb-3">
+              <label for="cursoSelect" class="form-label">Curso</label>
+              <select id="cursoSelect" name="cursoId" class="form-select" required>
+                  <option value="" disabled selected>Seleccione un curso</option>
+                  <option th:each="curso : ${listaCursos}" 
+                          th:value="${curso.idCurso}"
+                          th:text="${curso.nombre_curso}">Curso</option>
+              </select>
+              <div th:if="${#lists.isEmpty(listaCursos)}" class="mt-2">
+                  <small class="text-warning">No existen cursos, cree uno:</small>
+                  <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#crearCursoModal">
+                      Crear Curso
+                  </button>
+              </div>
+              <div class="mt-2">
+                  <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#crearCursoModal">
+                      ¿No encuentra el curso? Crear uno nuevo.
+                  </button>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-success">Guardar Asignatura</button>
+          <a href="/vistas/asignaturas" class="btn btn-secondary">Cancelar</a>
+      </form>
+  </section>
+
+  <div class="modal fade" id="crearCursoModal" tabindex="-1" aria-labelledby="crearCursoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form th:action="@{/vistas/cursos/crearAjax}" method="post" id="formCrearCurso">
+          <div class="modal-header">
+              <h5 class="modal-title" id="crearCursoModalLabel">Crear Curso</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+              <div class="mb-3">
+                  <label for="idCurso" class="form-label">ID Curso</label>
+                  <input type="text" class="form-control" id="idCurso" name="idCurso" placeholder="Ingrese el ID" required>
+              </div>
+              <div class="mb-3">
+                  <label for="nombreCurso" class="form-label">Nombre Curso</label>
+                  <input type="text" class="form-control" id="nombreCurso" name="nombreCurso" placeholder="Ingrese el nombre" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="submit" class="btn btn-primary">Guardar Curso</button>
+          </div>
         </form>
-        <br/>
-        <a href="/vistas/asignaturas"><button>Volver a la Lista</button></a>
-    </section>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    document.getElementById('formCrearCurso').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var form = this;
+        var formData = new FormData(form);
+        fetch(form.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al crear el curso");
+            }
+            return response.json();  
+        })
+        .then(data => {
+            var select = document.getElementById('cursoSelect');
+            var option = document.createElement('option');
+            option.value = data.idCurso;
+            option.text = data.nombreCurso;
+            option.selected = true;
+            select.appendChild(option);
+            var modalElement = document.getElementById('crearCursoModal');
+            var modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if (!modalInstance) {
+                modalInstance = new bootstrap.Modal(modalElement);
+            }
+            modalInstance.hide();
+            form.reset();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('No se pudo crear el curso: ' + error.message);
+        });
+    });
+  </script>
 </body>
 </html>
+

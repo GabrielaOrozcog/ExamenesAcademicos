@@ -1,0 +1,25 @@
+add Vistas, ttemplates and css
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Author:    Gabriela <gabrielaorozco035@gmail.com>
+#
+# On branch Gabriela
+# Last command done (1 command done):
+#    pick 40f596a add Vistas, ttemplates and css
+# Next commands to do (2 remaining commands):
+#    pick 9851603 add Vistas, ttemplates and css
+#    pick f5b68af final
+# You are currently editing a commit while rebasing branch 'main' on 'a15e985'.
+#
+# Changes to be committed:
+#	modified:   pom.xml
+#	modified:   src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Alumno.java
+#	modified:   src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Asignatura.java
+#	modified:   src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Profesor.java
+#	modified:   target/ExamenesAcademicos-1.0-SNAPSHOT.jar
+#	modified:   target/classes/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Alumno.class
+#	modified:   target/classes/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Asignatura.class
+#	modified:   target/classes/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Profesor.class
+#
