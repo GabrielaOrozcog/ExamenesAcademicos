@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar todos los temas)
+:Docentes: --> (Buscar un tema por ID)
+:Docentes: --> (Registrar un nuevo tema)
+:Docentes: --> (Actualizar información de un tema)
+:Docentes: --> (Eliminar un tema)
+:Docentes: --> (Consultar el número de temas)
+
+(Registrar un nuevo tema) ..> (Buscar un tema por ID): Include
+(Actualizar información de un tema) ..> (Buscar un tema por ID): Include
+(Eliminar un tema) ..> (Buscar un tema por ID): Include
+
+@enduml

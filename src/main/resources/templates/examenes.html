@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Listado de Exámenes</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
@@ -11,6 +12,16 @@
     </header>
     <section class="container">
         <table class="table table-striped">
+=======
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Listado de Exámenes</h1>
+    </header>
+    <section>
+        <table border="1">
+>>>>>>> Gabriela
             <thead>
                 <tr>
                     <th>ID Examen</th>
@@ -18,6 +29,10 @@
                     <th>Grupo</th>
                     <th>Profesor (ID)</th>
                     <th>Fecha Realización</th>
+<<<<<<< HEAD
+=======
+                    <th>Fecha Creación</th>
+>>>>>>> Gabriela
                     <th>Tipo Examen</th>
                     <th>Asignatura (ID)</th>
                     <th>Acciones</th>
@@ -25,6 +40,7 @@
             </thead>
             <tbody>
                 <tr th:each="examen : ${examenes}">
+<<<<<<< HEAD
                     <td th:text="${examen.idExamen}">ID</td>
                     <td th:text="${examen.alumno != null ? examen.alumno.idAlumno : 'N/A'}">Alumno</td>
                     <td th:text="${examen.grupo}">Grupo</td>
@@ -35,10 +51,24 @@
                     <td>
                         <a th:href="@{'/vistas/examenes/editar/' + ${examen.idExamen}}" class="btn btn-primary btn-sm">Editar</a>
                         <a th:href="@{'/vistas/examenes/eliminar/' + ${examen.idExamen}}" class="btn btn-danger btn-sm">Eliminar</a>
+=======
+                    <td th:text="${examen.idExamen}"></td>
+                    <td th:text="${examen.alumno != null ? examen.alumno.idAlumno : 'N/A'}"></td>
+                    <td th:text="${examen.grupo}"></td>
+                    <td th:text="${examen.profesor != null ? examen.profesor.idProfesor : 'N/A'}"></td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${#dates.format(examen.fechaCreacionExamen, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${examen.tipoExamen}"></td>
+                    <td th:text="${examen.asignatura != null ? examen.asignatura.idAsignatura : 'N/A'}"></td>
+                    <td>
+                        <a th:href="@{'/vistas/examenes/editar/' + ${examen.idExamen}}">Editar</a> |
+                        <a th:href="@{'/vistas/examenes/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+>>>>>>> Gabriela
                     </td>
                 </tr>
             </tbody>
         </table>
+<<<<<<< HEAD
         <a href="/vistas/examenes/crear">
             <button type="button" class="btn btn-success">Crear Nuevo Examen</button>
         </a>
@@ -51,3 +81,13 @@
 </html>
 
 
+=======
+        <br/>
+        <a href="/vistas/examenes/crear">
+            <button>Crear Nuevo Examen</button>
+        </a>
+    </section>
+</body>
+</html>
+
+>>>>>>> Gabriela

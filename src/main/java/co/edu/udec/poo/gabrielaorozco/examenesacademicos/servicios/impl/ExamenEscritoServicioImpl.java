@@ -21,39 +21,86 @@ public class ExamenEscritoServicioImpl implements ExamenEscritoServicio {
     @Autowired
     private ExamenEscritoRepositorio examenEscritoRepository;
     
+    
     @Override
-    public List<ExamenEscrito> getAllExamenesEscritos() {
-        return examenEscritoRepository.findAll();
+    public List<ExamenEscrito> getAllExamenesEscritos() throws Exception {
+    try {
+        List<ExamenEscrito> examenEscrito = examenEscritoRepository.findAll();
+        if (examenEscrito.isEmpty()) {
+            throw new Exception("No se encontraron examenes escritos registrados");
+        }
+        return examenEscrito;
+    } catch (Exception e) {
+        throw new Exception("Error al obtener la lista de examenes escritos: " + e.getMessage(), e);
     }
-
-    @Override
-    public ExamenEscrito getExamenEscritoById(Integer id) {
-        return examenEscritoRepository.findById(id).orElse(null);
     }
-
+    
     @Override
-    public ExamenEscrito createExamenEscrito(ExamenEscrito examenEscrito) {
+    public ExamenEscrito getExamenEscritoById(Integer id) throws Exception {
+    try {
+        return examenEscritoRepository.findById(id)
+                .orElseThrow(() -> new Exception("Examen Escrito no encontrado con ID: " + id));
+    } catch (Exception e) {
+        throw new Exception("Error al buscar examen escrito: " + e.getMessage(), e);
+    }
+    }
+    
+    
+    @Override
+    public ExamenEscrito createExamenEscrito(ExamenEscrito examenEscrito) throws Exception {
+    try {
+        if (examenEscritoRepository.existsById(examenEscrito.getIdExamen())) {
+            throw new Exception("Examen escrito con ID " + examenEscrito.getIdExamen() + " ya existe");
+        }
         return examenEscritoRepository.save(examenEscrito);
+    } catch (Exception e) {
+        throw new Exception("Error al crear examen escrito: " + e.getMessage(), e);
+    }
+    }
+    
+
+    @Override
+    public ExamenEscrito updateExamenEscrito(Integer id, ExamenEscrito examenEscritoDetails) throws Exception {
+    try {
+        ExamenEscrito examenEscrito = examenEscritoRepository.findById(id)
+                              .orElseThrow(() -> new Exception("Examen escrito no encontrado"));
+        
+            examenEscrito.setNumeroPreguntas(examenEscritoDetails.getNumeroPreguntas());
+            examenEscrito.setComponenteTeorico(examenEscritoDetails.getComponenteTeorico());
+            examenEscrito.setComponenteRedaccion(examenEscritoDetails.getComponenteRedaccion());
+            examenEscrito.setFechaRealizacion(examenEscritoDetails.getFechaRealizacion());
+            examenEscrito.setFechaCreacionExamen(examenEscritoDetails.getFechaCreacionExamen());
+            examenEscrito.setTipoExamen(examenEscritoDetails.getTipoExamen());
+            examenEscrito.setAsignatura(examenEscritoDetails.getAsignatura());
+            examenEscrito.setAlumno(examenEscritoDetails.getAlumno());
+            examenEscrito.setProfesor(examenEscritoDetails.getProfesor());
+            return examenEscritoRepository.save(examenEscrito);
+        
+    } catch (Exception e) {
+        throw new Exception("Error actualizando examen escrito: " + e.getMessage(), e);
+    }
     }
 
     @Override
-    public ExamenEscrito updateExamenEscrito(Integer id, ExamenEscrito examenDetails) {
-        return examenEscritoRepository.findById(id).map(examen -> {
-            examen.setNumeroPreguntas(examenDetails.getNumeroPreguntas());
-            examen.setComponenteTeorico(examenDetails.getComponenteTeorico());
-            examen.setComponenteRedaccion(examenDetails.getComponenteRedaccion());
-            examen.setFechaRealizacion(examenDetails.getFechaRealizacion());
-            examen.setFechaCreacionExamen(examenDetails.getFechaCreacionExamen());
-            examen.setTipoExamen(examenDetails.getTipoExamen());
-            examen.setAsignatura(examenDetails.getAsignatura());
-            examen.setAlumno(examenDetails.getAlumno());
-            examen.setProfesor(examenDetails.getProfesor());
-            return examenEscritoRepository.save(examen);
-        }).orElse(null);
-    }
-
-    @Override
-    public void deleteExamenEscrito(Integer id) {
+    public void deleteExamenEscrito(Integer id) throws Exception {
+    try {
+        examenEscritoRepository.findById(id).orElseThrow(() -> 
+            new Exception("Examen escrito con ID " + id + " no encontrado"));
         examenEscritoRepository.deleteById(id);
+    } catch (Exception e) {
+        throw new Exception("Error eliminando examen escrito: " + e.getMessage());
     }
+    }
+    
+    
+    @Override
+    public Integer contarExamenesEscritos() throws Exception {
+    try {
+        long total = examenEscritoRepository.count();
+        return Math.toIntExact(total); 
+        } catch (Exception e) {
+        throw new Exception("Error al contar los examenes escritos : " + e.getMessage(), e);
+        }
+    }
+    
 }

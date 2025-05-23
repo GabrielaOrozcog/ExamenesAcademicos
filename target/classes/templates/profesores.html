@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
+<<<<<<< HEAD
     <header class="mb-3">
         <h1 class="text-center">Listado de Profesores</h1>
     </header>
@@ -14,13 +15,29 @@
             <thead>
                 <tr>
                     <th>ID</th>
+=======
+    <header>
+        <h1>Listado de Profesores</h1>
+    </header>
+    <section>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Profesor</th>
+>>>>>>> Gabriela
                     <th>Nombre</th>
                     <th>Email</th>
                     <th>Teléfono</th>
                     <th>Cargo</th>
+<<<<<<< HEAD
                     <th>Departamento</th>
                     <th>Inicio Contrato</th>
                     <th>Fin Contrato</th>
+=======
+                    <th>Departamento Académico</th>
+                    <th>Fecha Inicio Contrato</th>
+                    <th>Fecha Fin Contrato</th>
+>>>>>>> Gabriela
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -32,15 +49,24 @@
                     <td th:text="${profesor.telefono_Profesor}">Teléfono</td>
                     <td th:text="${profesor.cargo}">Cargo</td>
                     <td th:text="${profesor.departamentoAcademico != null ? profesor.departamentoAcademico.nombre : 'N/A'}">Departamento</td>
+<<<<<<< HEAD
                     <td th:text="${#dates.format(profesor.fecha_InicioContrato, 'yyyy-MM-dd')}">Inicio</td>
                     <td th:text="${#dates.format(profesor.fecha_FinContrato, 'yyyy-MM-dd')}">Fin</td>
                     <td>
                         <a th:href="@{'/vistas/profesores/editar/' + ${profesor.id_Profesor}}" class="btn btn-primary btn-sm">Editar</a>
                         <a th:href="@{'/vistas/profesores/eliminar/' + ${profesor.id_Profesor}}" class="btn btn-danger btn-sm">Eliminar</a>
+=======
+                    <td th:text="${#dates.format(profesor.fecha_InicioContrato, 'yyyy-MM-dd')}">Inicio Contrato</td>
+                    <td th:text="${#dates.format(profesor.fecha_FinContrato, 'yyyy-MM-dd')}">Fin Contrato</td>
+                    <td>
+                        <a th:href="@{'/vistas/profesores/editar/' + ${profesor.id_Profesor}}">Editar</a> |
+                        <a th:href="@{'/vistas/profesores/eliminar/' + ${profesor.id_Profesor}}">Eliminar</a>
+>>>>>>> Gabriela
                     </td>
                 </tr>
             </tbody>
         </table>
+<<<<<<< HEAD
         <a href="/vistas/profesores/crear">
             <button type="button" class="btn btn-success">Crear Nuevo Profesor</button>
         </a>
@@ -53,3 +79,13 @@
 </html>
 
 
+=======
+        <br>
+        <a href="/vistas/profesores/crear">
+            <button>Crear Nuevo Profesor</button>
+        </a>
+    </section>
+</body>
+</html>
+
+>>>>>>> Gabriela

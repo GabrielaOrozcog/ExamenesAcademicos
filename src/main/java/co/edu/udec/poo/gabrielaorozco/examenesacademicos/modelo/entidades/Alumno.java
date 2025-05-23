@@ -43,11 +43,11 @@ public class Alumno {
         private List<Examen> examenes;
     
         public void realizarControl() {
-            System.out.println("Alumno " + this.nombre_Alumno + " is taking a control exam.");
+            System.out.println("Alumno " + this.nombre_Alumno + " está tomando un examen de control.");
         }
     
         public void registrarPractica() {
-            System.out.println("Alumno " + this.nombre_Alumno + " has registered a practice.");
+            System.out.println("Alumno " + this.nombre_Alumno + " ha registrado una práctica.");
         }
     
         public double calcularNota() {
@@ -62,4 +62,5 @@ public class Alumno {
         }
 
 
+        
 }

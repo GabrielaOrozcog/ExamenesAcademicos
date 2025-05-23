@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar exámenes escritos)
+:Docentes: --> (Consultar examen escrito por ID)
+:Docentes: --> (Crear examen escrito)
+:Docentes: --> (Actualizar examen escrito)
+:Docentes: --> (Eliminar examen escrito)
+:Docentes: --> (Contar exámenes escritos)
+
+(Crear examen escrito) ..> (Consultar examen escrito por ID): include
+(Actualizar examen escrito) ..> (Consultar examen escrito por ID): include
+(Eliminar examen escrito) ..> (Consultar examen escrito por ID): include
+
+@enduml

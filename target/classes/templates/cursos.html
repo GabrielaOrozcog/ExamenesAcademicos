@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Listado de Cursos</title>
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
@@ -15,20 +16,47 @@
                 <tr>
                     <th>ID Curso</th>
                     <th>Nombre del Curso</th>
+=======
+    <title>Lista de Cursos</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Gestión de Cursos</h1>
+    </header>
+    <section>
+        <h2>Listado de Cursos</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+>>>>>>> Gabriela
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="curso : ${cursos}">
+<<<<<<< HEAD
                     <td th:text="${curso.idCurso}">ID</td>
                     <td th:text="${curso.nombreCurso}">Nombre</td>
                     <td>
                         <a th:href="@{'/vistas/cursos/editar/' + ${curso.idCurso}}" class="btn btn-primary btn-sm">Editar</a>
                         <a th:href="@{'/vistas/cursos/eliminar/' + ${curso.idCurso}}" class="btn btn-danger btn-sm">Eliminar</a>
+=======
+                    <td th:text="${curso.idCurso}"></td>
+                    <td th:text="${curso.nombre}"></td>
+                    <td th:text="${curso.descripcion}"></td>
+                    <td>
+                        <a th:href="@{/vistas/cursos/editar/{id}(id=${curso.idCurso})}">Editar</a> |
+                        <a th:href="@{/vistas/cursos/eliminar/{id}(id=${curso.idCurso})}">Eliminar</a>
+>>>>>>> Gabriela
                     </td>
                 </tr>
             </tbody>
         </table>
+<<<<<<< HEAD
         <a href="/vistas/cursos/crear">
             <button type="button" class="btn btn-success">Crear Nuevo Curso</button>
         </a>
@@ -41,3 +69,11 @@
 </html>
 
 
+=======
+        <br/>
+        <a href="/vistas/cursos/crear"><button>Crear Nuevo Curso</button></a>
+    </section>
+</body>
+</html>
+
+>>>>>>> Gabriela

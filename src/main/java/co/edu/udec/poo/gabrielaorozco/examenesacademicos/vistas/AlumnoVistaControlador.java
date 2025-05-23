@@ -27,47 +27,97 @@ public class AlumnoVistaControlador {
     @Autowired
     private CursoServicio cursoServicio;
     
-    @GetMapping
+    
+    @GetMapping ("/listar")
     public String listarAlumnos(Model model) {
+<<<<<<< HEAD
         model.addAttribute("alumnos", alumnoServicio.getAllAlumnos());
+=======
+        try {
+            model.addAttribute("alumnos", alumnoServicio.getAllAlumnos());
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al listar alumnos: " + e.getMessage());
+        }
+>>>>>>> Gabriela
         return "alumnos";
     }
-
-
+    
+    
     @GetMapping("/crear")
     public String formularioCrearAlumno(Model model) {
-        model.addAttribute("alumno", new Alumno());
-        model.addAttribute("cursos", cursoServicio.getAllCursos());
+        try {
+            model.addAttribute("alumno", new Alumno());
+            model.addAttribute("cursos", cursoServicio.getAllCursos());
+            return "crearAlumno";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al cargar formulario: " + e.getMessage());
+            return "redirect:/vistas/alumnos";
+        }
+    }
+    
+    
+    @PostMapping("/crear")
+    public String guardarAlumno(@ModelAttribute("alumno") Alumno alumno, @RequestParam("cursoId") int cursoId, Model model) {
+         try {
+             alumno.setCurso(cursoServicio.getCursoById(cursoId));
+             alumnoServicio.createAlumno(alumno);
+             return "redirect:/vistas/alumnos";
+            } catch (Exception e) {
+               model.addAttribute("error", "Error al guardar el alumno: " + e.getMessage());
+         try {
+              model.addAttribute("cursos", cursoServicio.getAllCursos());
+             } catch (Exception ex) {
+                model.addAttribute("errorCursos", "No se pudo cargar la lista de cursos: " + ex.getMessage());
+            }
         return "crearAlumno";
+        }
     }
 
-    @PostMapping("/crear")
-    public String guardarAlumno(@ModelAttribute("alumno") Alumno alumno, @RequestParam("cursoId") int cursoId) {
-        alumno.setCurso(cursoServicio.getCursoById(cursoId));
-        alumnoServicio.createAlumno(alumno);
-        return "redirect:/vistas/alumnos";
-    }
 
     @GetMapping("/editar/{id}")
     public String formularioEditarAlumno(@PathVariable Integer id, Model model) {
-        Alumno alumno = alumnoServicio.getAlumnoById(id);
-        if (alumno != null) {
+        try {
+            Alumno alumno = alumnoServicio.getAlumnoById(id);
             model.addAttribute("alumno", alumno);
+            model.addAttribute("cursos", cursoServicio.getAllCursos());
             return "editarAlumno";
-        } else {
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al cargar el alumno: " + e.getMessage());
             return "redirect:/vistas/alumnos";
         }
     }
 
     @PostMapping("/editar/{id}")
-    public String actualizarAlumno(@PathVariable Integer id, @ModelAttribute("alumno") Alumno alumnoDetails) {
-        alumnoServicio.updateAlumno(id, alumnoDetails);
-        return "redirect:/vistas/alumnos";
+    public String actualizarAlumno(@PathVariable Integer id, @ModelAttribute("alumno") Alumno alumnoDetails, Model model) {
+        try {
+            alumnoServicio.updateAlumno(id, alumnoDetails);
+            return "redirect:/vistas/alumnos";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al actualizar el alumno: " + e.getMessage());
+            return "editarAlumno";
+        }
     }
 
     @GetMapping("/eliminar/{id}")
-    public String eliminarAlumno(@PathVariable Integer id) {
-        alumnoServicio.deleteAlumno(id);
+    public String eliminarAlumno(@PathVariable Integer id, Model model) {
+        try {
+            alumnoServicio.deleteAlumno(id);
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al eliminar el alumno: " + e.getMessage());
+        }
         return "redirect:/vistas/alumnos";
     }
+    
+    
+    @GetMapping("/contar")
+    public String contarAlumnos(Model model) {
+    try {
+        Integer totalAlumnos = alumnoServicio.contarAlumnos();
+        model.addAttribute("totalAlumnos", totalAlumnos);
+        } catch (Exception e) {
+        model.addAttribute("error", "Error al contar alumnos: " + e.getMessage());
+        }
+        return "alumnos";
+    }
+
 }

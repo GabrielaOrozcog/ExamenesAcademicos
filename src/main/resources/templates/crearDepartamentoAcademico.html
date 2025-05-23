@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Departamento Académico</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
@@ -30,3 +31,34 @@
 </body>
 </html>
 
+=======
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Crear Departamento Académico</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/departamentoacademico/crear}" th:object="${departamento}" method="post">
+            <div>
+                <label>ID:</label>
+                <input type="text" th:field="*{idDepartamentoAcademico}" />
+            </div>
+            <div>
+                <label>Nombre:</label>
+                <input type="text" th:field="*{nombre}" />
+            </div>
+            <div>
+                <label>Descripción:</label>
+                <textarea th:field="*{descripcion}" rows="4"></textarea>
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/departamentoacademico"><button>Volver a la Lista</button></a>
+    </section>
+</body>
+</html>
+>>>>>>> Gabriela

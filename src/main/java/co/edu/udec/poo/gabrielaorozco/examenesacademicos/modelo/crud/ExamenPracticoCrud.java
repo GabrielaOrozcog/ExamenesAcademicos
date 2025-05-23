@@ -23,39 +23,69 @@ public class ExamenPracticoCrud {
     @Autowired
     private ExamenPracticoServicio examenPracticoServicio;
 
+    
     @GetMapping
-    public List<ExamenPractico> getAll() {
-        return examenPracticoServicio.getAllExamenesPracticos();
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ExamenPractico> getById(@PathVariable Integer id) {
-        ExamenPractico examenPractico = examenPracticoServicio.getExamenPracticoById(id);
-        if (examenPractico != null) {
-            return ResponseEntity.ok(examenPractico);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> getAllExamenesPracticos() {
+        try {
+            List<ExamenPractico> examenesPracticos = examenPracticoServicio.getAllExamenesPracticos();
+            return ResponseEntity.ok(examenesPracticos);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error al obtener los exámenes practicos: " + e.getMessage());
         }
     }
-
-    @PostMapping
-    public ExamenPractico create(@RequestBody ExamenPractico examenPractico) {
-        return examenPracticoServicio.createExamenPractico(examenPractico);
+    
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getExamenPracticoById(@PathVariable Integer id) {
+        try {
+            ExamenPractico examenPractico = examenPracticoServicio.getExamenPracticoById(id);
+            return ResponseEntity.ok(examenPractico);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró el examen practico con ID " + id + ": " + e.getMessage());
+        }
     }
+    
+    
+    @PostMapping
+    public ResponseEntity<?> createExamenPractico(@RequestBody ExamenPractico examenPractico) {
+        try {
+            ExamenPractico nuevoExamenPractico = examenPracticoServicio.createExamenPractico(examenPractico);
+            return ResponseEntity.ok(nuevoExamenPractico);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error al crear examen practico: " + e.getMessage());
+        }
+    }
+    
 
     @PutMapping("/{id}")
-    public ResponseEntity<ExamenPractico> update(@PathVariable Integer id, @RequestBody ExamenPractico examenPracticoDetails) {
-        ExamenPractico updatedExamenPractico = examenPracticoServicio.updateExamenPractico(id, examenPracticoDetails);
-        if (updatedExamenPractico != null) {
-            return ResponseEntity.ok(updatedExamenPractico);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> updateExamenPractico(@PathVariable Integer id, @RequestBody ExamenPractico examenPracticoDetails) {
+        try {
+            ExamenPractico actualizado = examenPracticoServicio.updateExamenPractico(id, examenPracticoDetails);
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar examen practico: " + e.getMessage());
         }
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        examenPracticoServicio.deleteExamenPractico(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<?> deleteExamenPractico(@PathVariable Integer id) {
+        try {
+            examenPracticoServicio.deleteExamenPractico(id);
+            return ResponseEntity.ok("Examen practico eliminado exitosamente.");
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar examen practico: " + e.getMessage());
+        }
     }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarExamenesPracticos() {
+    try {
+        Integer total = examenPracticoServicio.contarExamenesPracticos();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }

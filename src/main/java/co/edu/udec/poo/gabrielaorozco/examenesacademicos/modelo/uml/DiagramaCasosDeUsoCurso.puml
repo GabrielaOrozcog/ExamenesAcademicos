@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar todos los cursos)
+:Docentes: --> (Buscar un curso por ID)
+:Docentes: --> (Registrar un nuevo curso)
+:Docentes: --> (Actualizar información del curso)
+:Docentes: --> (Eliminar un curso)
+:Docentes: --> (Consultar el número de cursos)
+
+(Registrar un nuevo curso) ..> (Buscar un curso por ID): include
+(Actualizar información del curso) ..> (Buscar un curso por ID): include
+(Eliminar un curso) ..> (Buscar un curso por ID) : include
+
+@enduml

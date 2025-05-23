@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar exámenes practicos)
+:Docentes: --> (Consultar examen practico por ID)
+:Docentes: --> (Crear examen practico)
+:Docentes: --> (Actualizar examen practico)
+:Docentes: --> (Eliminar examen practico)
+:Docentes: --> (Contar exámenes practico)
+
+(Crear examen practico) ..> (Consultar examen practico por ID): include
+(Actualizar examen practico) ..> (Consultar examen practico por ID): include
+(Eliminar examen practico) ..> (Consultar examen practico por ID): include
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar todos los alumnos)
+:Docentes: --> (Buscar un alumno por ID)
+:Docentes: --> (Registrar un nuevo alumno)
+:Docentes: --> (Actualizar informacion de un alumno)
+:Docentes: --> (Eliminar un alumno)
+:Docentes: --> (Consultar el numero de alumnos)
+
+(Registrar un nuevo alumno) ..> (Buscar un alumno por ID): Include
+(Actualizar informacion de un alumno) ..> (Buscar un alumno por ID): Include
+(Eliminar un alumno) ..> (Buscar un alumno por ID): Include
+
+@enduml

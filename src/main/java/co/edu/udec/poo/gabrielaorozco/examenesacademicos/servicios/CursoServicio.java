@@ -14,13 +14,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Curso;
 
 public interface CursoServicio {
     
-    List<Curso> getAllCursos();
+    List<Curso> getAllCursos() throws Exception;
     
-    Curso getCursoById(Integer id);
+    Curso getCursoById(Integer id) throws Exception;
     
-    Curso createCurso(Curso curso);
+    Curso createCurso(Curso curso) throws Exception;
     
-    Curso updateCurso(Integer id, Curso curso);
+    Curso updateCurso(Integer id, Curso cursoDetails) throws Exception;
     
-    void deleteCurso(Integer id);
+    void deleteCurso(Integer id) throws Exception;
+    
+    Integer contarCursos() throws Exception;
 }

@@ -24,6 +24,7 @@ public class ProfesorVistaControlador {
     
     @GetMapping
     public String listarProfesores(Model model) {
+<<<<<<< HEAD
         model.addAttribute("profesores", profesorServicio.getAllProfesores());
         return "profesores";
     }
@@ -46,10 +47,77 @@ public class ProfesorVistaControlador {
         if (profesor != null) {
             model.addAttribute("profesor", profesor);
             return "editarProfesor";
+=======
+        try {
+            model.addAttribute("profesores", profesorServicio.getAllProfesores());
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al listar profesores : " + e.getMessage());
+        }
+        return "profesores";
+    }
+    
+    
+    @GetMapping("/crear")
+    public String formularioCrearProfesor(Model model) {
+        try {
+            model.addAttribute("profesor", new Profesor());
+            return "crearProfesor";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al cargar formulario: " + e.getMessage());
+            return "redirect:/vistas/profesores";
+        }
+    }
+    
+    
+    @PostMapping("/crear")
+    public String guardarProfesor(@ModelAttribute("profesor") Profesor profesor, Model model) {
+         try {
+             profesorServicio.createProfesor(profesor);
+             return "redirect:/vistas/profesores";
+            } catch (Exception e) {
+               model.addAttribute("error", "Error al guardar el profesor : " + e.getMessage());
+              return "crearProfesor";
+        }
+    }
+    
+    
+    @GetMapping("/editar/{id}")
+    public String formularioEditarProfesor(@PathVariable Integer id, Model model) {
+        try {
+            Profesor profesor = profesorServicio.getProfesorById(id);
+            model.addAttribute("profesor", profesor);
+            return "editarProfesor";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al cargar el profesor : " + e.getMessage());
+            return "redirect:/vistas/profesores";
+        }
+    }
+    
+    
+    @PostMapping("/editar/{id}")
+    public String actualizarProfesor(@PathVariable Integer id, @ModelAttribute("profesor") Profesor profesorDetails, Model model) {
+        try {
+            profesorServicio.updateProfesor(id, profesorDetails);
+            return "redirect:/vistas/profesores";
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al actualizar el profesor: " + e.getMessage());
+            return "editarProfesor";
+        }
+    }
+    
+    
+    @GetMapping("/eliminar/{id}")
+    public String eliminarProfesor(@PathVariable Integer id, Model model) {
+        try {
+            profesorServicio.deleteProfesor(id);
+        } catch (Exception e) {
+            model.addAttribute("error", "Error al eliminar el profesor : " + e.getMessage());
+>>>>>>> Gabriela
         }
         return "redirect:/vistas/profesores";
     }
     
+<<<<<<< HEAD
     @PostMapping("/editar/{id}")
     public String actualizarProfesor(@PathVariable Integer id, @ModelAttribute("profesor") Profesor profesorDetails) {
         profesorServicio.updateProfesor(id, profesorDetails);
@@ -61,4 +129,18 @@ public class ProfesorVistaControlador {
         profesorServicio.deleteProfesor(id);
         return "redirect:/vistas/profesores";
     }
+=======
+    
+    @GetMapping("/contar")
+    public String contarProfesores(Model model) {
+    try {
+        Integer totalProfesores = profesorServicio.contarProfesores();
+        model.addAttribute("totalProfesores", totalProfesores);
+        } catch (Exception e) {
+        model.addAttribute("error", "Error al contar profesores : " + e.getMessage());
+        }
+        return "profesores";
+    }
+    
+>>>>>>> Gabriela
 }

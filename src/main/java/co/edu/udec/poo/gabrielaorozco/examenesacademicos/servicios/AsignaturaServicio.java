@@ -14,13 +14,19 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Asigna
 
 public interface AsignaturaServicio {
     
-    List<Asignatura> getAllAsignaturas();
+    List<Asignatura> getAllAsignaturas() throws Exception;
     
-    Asignatura getAsignaturaById(Integer id);
+    Asignatura getAsignaturaById(Integer id) throws Exception;
     
-    Asignatura createAsignatura(Asignatura asignatura);
+    Asignatura createAsignatura(Asignatura asignatura) throws Exception;
     
-    Asignatura updateAsignatura(Integer id, Asignatura asignaturaDetails);
+    Asignatura updateAsignatura(Integer id, Asignatura asignaturaDetails) throws Exception;
     
+<<<<<<< HEAD
     void deleteAsignatura(Integer id);
+=======
+    void deleteAsignatura(Integer id) throws Exception;
+    
+    Integer contarAsignaturas() throws Exception;
+>>>>>>> Gabriela
 }

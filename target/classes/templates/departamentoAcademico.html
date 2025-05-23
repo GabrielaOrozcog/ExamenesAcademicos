@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Departamentos Académicos</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Departamentos Académicos</h1>
+    </header>
+    <section>
+        <h2>Listado de Departamentos</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="departamento : ${departamentos}">
+                    <td th:text="${departamento.idDepartamentoAcademico}">ID</td>
+                    <td th:text="${departamento.nombre}">Nombre</td>
+                    <td th:text="${departamento.descripcion}">Descripción</td>
+                    <td>
+                        <a th:href="@{'/vistas/departamentoacademico/editar/' + ${departamento.idDepartamentoAcademico}}">Editar</a> |
+                        <a th:href="@{'/vistas/departamentoacademico/eliminar/' + ${departamento.idDepartamentoAcademico}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/vistas/departamentoacademico/crear"><button>Crear Nuevo Departamento Académico</button></a>
+    </section>
+</body>
+</html>

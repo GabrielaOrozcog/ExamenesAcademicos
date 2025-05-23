@@ -57,7 +57,7 @@ public class Examen {
         private Asignatura asignatura;
 
         public double calcularNotaFinal() {
-            System.out.println("Default implementation for Examen; please override in subclasses.");
+            System.out.println("Implementación predeterminada para Examen; por favor, anule en subclases.");
             return 0.0;
         }
 

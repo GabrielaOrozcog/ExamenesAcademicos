@@ -12,13 +12,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Practi
  */
 public interface PracticaServicio {
     
-    List<Practica> getAllPracticas();
+    List<Practica> getAllPracticas() throws Exception;
     
-    Practica getPracticaById(Integer id);
+    Practica getPracticaById(Integer id) throws Exception;
     
-    Practica createPractica(Practica practica);
+    Practica createPractica(Practica practica) throws Exception ;
     
-    Practica updatePractica(Integer id, Practica practicaDetails);
+    Practica updatePractica(Integer id, Practica practicaDetails) throws Exception ;
     
-    void deletePractica(Integer id);
+    void deletePractica(Integer id) throws Exception;
+    
+    Integer contarPracticas() throws Exception;
 }

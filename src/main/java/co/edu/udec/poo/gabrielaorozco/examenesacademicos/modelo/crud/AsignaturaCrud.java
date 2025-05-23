@@ -22,40 +22,71 @@ public class AsignaturaCrud {
 
     @Autowired
     private AsignaturaServicio asignaturaServicio;
-
+    
+    
     @GetMapping
-    public List<Asignatura> getAll() {
-        return asignaturaServicio.getAllAsignaturas();
+    public ResponseEntity<?> getAllAsignaturas() {
+       try {
+           List<Asignatura> asignaturas = asignaturaServicio.getAllAsignaturas();
+           return ResponseEntity.ok(asignaturas);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al obtener las asignaturas: " + e.getMessage());
+        }
     }
-
+    
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Asignatura> getById(@PathVariable Integer id) {
-        Asignatura asignatura = asignaturaServicio.getAsignaturaById(id);
-        if (asignatura != null) {
+    public ResponseEntity<?> getAsignaturaById(@PathVariable Integer id) {
+        try {
+            Asignatura asignatura = asignaturaServicio.getAsignaturaById(id);
             return ResponseEntity.ok(asignatura);
-        } else {
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró la asignatura con ID: " + id + ". " + e.getMessage());
         }
     }
 
+    
     @PostMapping
-    public Asignatura create(@RequestBody Asignatura asignatura) {
-        return asignaturaServicio.createAsignatura(asignatura);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Asignatura> update(@PathVariable Integer id, @RequestBody Asignatura asignaturaDetails) {
-        Asignatura updatedAsignatura = asignaturaServicio.updateAsignatura(id, asignaturaDetails);
-        if (updatedAsignatura != null) {
-            return ResponseEntity.ok(updatedAsignatura);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> createAsignatura(@RequestBody Asignatura asignatura) {
+        try {
+            Asignatura nuevaAsignatura = asignaturaServicio.createAsignatura(asignatura);
+            return ResponseEntity.ok(nuevaAsignatura);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Error al crear la asignatura: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        asignaturaServicio.deleteAsignatura(id);
-        return ResponseEntity.ok().build();
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAsignatura(@PathVariable Integer id, @RequestBody Asignatura asignaturaDetails) {
+        try {
+            Asignatura actualizada = asignaturaServicio.updateAsignatura(id, asignaturaDetails);
+            return ResponseEntity.ok(actualizada);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar la asignatura: " + e.getMessage());
+        }
     }
+
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAsignatura(@PathVariable Integer id) {
+        try {
+            asignaturaServicio.deleteAsignatura(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar la asignatura: " + e.getMessage());
+        }
+    }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarAsignaturas() {
+    try {
+        Integer total = asignaturaServicio.contarAsignaturas();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }

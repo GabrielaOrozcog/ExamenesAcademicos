@@ -1,0 +1,14 @@
+@startuml
+:AdministradorAcademico:
+:AdministradorAcademico: --> (Listar departamentos académicos)
+:AdministradorAcademico: --> (Buscar departamento académico por ID)
+:AdministradorAcademico: --> (Registrar nuevo departamento académico)
+:AdministradorAcademico: --> (Actualizar departamento académico)
+:AdministradorAcademico: --> (Eliminar departamento académico)
+:AdministradorAcademico: --> (Consultar número de departamentos académicos)
+
+(Registrar nuevo departamento académico) ..> (Buscar departamento académico por ID): include
+(Actualizar departamento académico) ..> (Buscar departamento académico por ID): include
+(Eliminar departamento académico) ..> (Buscar departamento académico por ID): include
+
+@enduml

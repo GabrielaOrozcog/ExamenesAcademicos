@@ -14,13 +14,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Tema;
 
 public interface TemaServicio {
     
-    List<Tema> getAllTemas();
+    List<Tema> getAllTemas() throws Exception;
     
-    Tema getTemaById(Integer id);
+    Tema getTemaById(Integer id) throws Exception;
     
-    Tema createTema(Tema tema);
+    Tema createTema(Tema tema) throws Exception;
     
-    Tema updateTema(Integer id, Tema temaDetails);
+    Tema updateTema(Integer id, Tema temaDetails) throws Exception;
     
-    void deleteTema(Integer id);
+    void deleteTema(Integer id) throws Exception;
+    
+    Integer contarTemas() throws Exception;
 }

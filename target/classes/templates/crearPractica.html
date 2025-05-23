@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Práctica</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
@@ -47,3 +48,51 @@
 </html>
 
 
+=======
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Crear Práctica</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/practicas/crear}" th:object="${practica}" method="post">
+            <div>
+                <label>ID Practica:</label>
+                <input type="text" th:field="*{idPractica}" placeholder="Ingrese el ID de la práctica" />
+            </div>
+            <div>
+                <label>Título:</label>
+                <input type="text" th:field="*{titulo}" placeholder="Ingrese el título" />
+            </div>
+            <div>
+                <label>Fecha de Creación:</label>
+                <input type="date" th:field="*{fechaCreacion}" />
+            </div>
+            <div>
+                <label>Nivel de Dificultad:</label>
+                <input type="text" th:field="*{nivelDificultadPractica}" placeholder="Ingrese el nivel de dificultad" />
+            </div>
+            <!-- Selección de profesores -->
+            <div>
+                <label>Profesores:</label>
+                <select name="profesoresSeleccionados" multiple="multiple">
+                    <option th:each="profesor : ${listaProfesores}"
+                            th:value="${profesor.idProfesor}"
+                            th:text="${profesor.nombre}">
+                    </option>
+                </select>
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/practicas">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
+
+>>>>>>> Gabriela

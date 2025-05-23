@@ -13,13 +13,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Alumno
  */
 public interface AlumnoServicio {
     
-    List<Alumno> getAllAlumnos();
+    List<Alumno> getAllAlumnos() throws Exception;
     
-    Alumno getAlumnoById(Integer id);
+    Alumno getAlumnoById(Integer id) throws Exception;
     
-    Alumno createAlumno(Alumno alumno);
+    Alumno createAlumno(Alumno alumno) throws Exception;
     
-    Alumno updateAlumno(Integer id, Alumno alumno);
+    Alumno updateAlumno(Integer id, Alumno alumnoDetails) throws Exception;
     
-    void deleteAlumno(Integer id);
+    void deleteAlumno(Integer id) throws Exception;
+    
+    Integer contarAlumnos() throws Exception;
 }
