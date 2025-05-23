@@ -20,41 +20,89 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.servicios.ExamenPractic
 public class ExamenPracticoServicioImpl implements ExamenPracticoServicio{
     @Autowired
     private ExamenPracticoRepositorio examenPracticoRepository;
+   
     
     @Override
-    public List<ExamenPractico> getAllExamenesPracticos() {
-        return examenPracticoRepository.findAll();
+    public List<ExamenPractico> getAllExamenesPracticos() throws Exception {
+    try {
+        List<ExamenPractico> examenPractico = examenPracticoRepository.findAll();
+        if (examenPractico.isEmpty()) {
+            throw new Exception("No se encontraron examenes practicos registrados");
+        }
+        return examenPractico;
+    } catch (Exception e) {
+        throw new Exception("Error al obtener la lista de examenes practicos: " + e.getMessage(), e);
+    }
     }
 
+    
     @Override
-    public ExamenPractico getExamenPracticoById(Integer id) {
-        return examenPracticoRepository.findById(id).orElse(null);
+    public ExamenPractico getExamenPracticoById(Integer id) throws Exception {
+    try {
+        return examenPracticoRepository.findById(id)
+                .orElseThrow(() -> new Exception("Examen practico no encontrado con ID: " + id));
+    } catch (Exception e) {
+        throw new Exception("Error al buscar examen practico: " + e.getMessage(), e);
     }
+    }
+    
 
     @Override
-    public ExamenPractico createExamenPractico(ExamenPractico examenPractico) {
+    public ExamenPractico createExamenPractico(ExamenPractico examenPractico) throws Exception {
+    try {
+        if (examenPracticoRepository.existsById(examenPractico.getIdExamen())) {
+            throw new Exception("Examen practico con ID " + examenPractico.getIdExamen() + " ya existe");
+        }
         return examenPracticoRepository.save(examenPractico);
+    } catch (Exception e) {
+        throw new Exception("Error al crear examen practico: " + e.getMessage(), e);
     }
-
-    @Override
-    public ExamenPractico updateExamenPractico(Integer id, ExamenPractico examenDetails) {
-        return examenPracticoRepository.findById(id).map(examen -> {
-            examen.setDescripcionExamenPractico(examenDetails.getDescripcionExamenPractico());
-            examen.setComponenteLaboratorio(examenDetails.getComponenteLaboratorio());
-            examen.setComponenteEficiencia(examenDetails.getComponenteEficiencia());
-            examen.setGrupal(examenDetails.isGrupal());
-            examen.setFechaRealizacion(examenDetails.getFechaRealizacion());
-            examen.setFechaCreacionExamen(examenDetails.getFechaCreacionExamen());
-            examen.setTipoExamen(examenDetails.getTipoExamen());
-            examen.setAsignatura(examenDetails.getAsignatura());
-            examen.setAlumno(examenDetails.getAlumno());
-            examen.setProfesor(examenDetails.getProfesor());
-            return examenPracticoRepository.save(examen);
-        }).orElse(null);
     }
-
+    
+    
     @Override
-    public void deleteExamenPractico(Integer id) {
+    public ExamenPractico updateExamenPractico(Integer id, ExamenPractico examenPracticoDetails) throws Exception {
+    try {
+        ExamenPractico examenPractico = examenPracticoRepository.findById(id)
+                              .orElseThrow(() -> new Exception("Examen practico no encontrado"));
+        
+            examenPractico.setDescripcionExamenPractico(examenPracticoDetails.getDescripcionExamenPractico());
+            examenPractico.setComponenteEficiencia(examenPracticoDetails.getComponenteEficiencia());
+            examenPractico.setComponenteLaboratorio(examenPracticoDetails.getComponenteLaboratorio());
+            examenPractico.setGrupal(examenPracticoDetails.isGrupal());
+            examenPractico.setFechaRealizacion(examenPracticoDetails.getFechaRealizacion());
+            examenPractico.setFechaCreacionExamen(examenPracticoDetails.getFechaCreacionExamen());
+            examenPractico.setTipoExamen(examenPracticoDetails.getTipoExamen());
+            examenPractico.setAsignatura(examenPracticoDetails.getAsignatura());
+            examenPractico.setAlumno(examenPracticoDetails.getAlumno());
+            examenPractico.setProfesor(examenPracticoDetails.getProfesor());
+            return examenPracticoRepository.save(examenPractico);
+        
+    } catch (Exception e) {
+        throw new Exception("Error actualizando examen practico: " + e.getMessage(), e);
+    }
+    }
+    
+    
+    @Override
+    public void deleteExamenPractico(Integer id) throws Exception {
+    try {
+        examenPracticoRepository.findById(id).orElseThrow(() -> 
+            new Exception("Examen practico con ID " + id + " no encontrado"));
         examenPracticoRepository.deleteById(id);
+    } catch (Exception e) {
+        throw new Exception("Error eliminando examen practico: " + e.getMessage());
+    }
+    }
+    
+    
+    @Override
+    public Integer contarExamenesPracticos() throws Exception {
+    try {
+        long total = examenPracticoRepository.count();
+        return Math.toIntExact(total); 
+        } catch (Exception e) {
+        throw new Exception("Error al contar los examenes practicos : " + e.getMessage(), e);
+        }
     }
 }

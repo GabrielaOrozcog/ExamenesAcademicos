@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Departamento Académico</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Editar Departamento Académico</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/departamentoacademico/editar/{id}(id=${departamento.idDepartamentoAcademico})}" th:object="${departamento}" method="post">
+            <div>
+                <label>ID:</label>
+                <input type="text" th:field="*{idDepartamentoAcademico}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Nombre:</label>
+                <input type="text" th:field="*{nombre}" />
+            </div>
+            <div>
+                <label>Descripción:</label>
+                <textarea th:field="*{descripcion}" rows="4"></textarea>
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/departamentoacademico"><button>Volver a la Lista</button></a>
+    </section>
+</body>
+</html>
+

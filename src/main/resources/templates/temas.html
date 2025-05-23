@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Temas</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Temas</h1>
+    </header>
+    <section>
+        <h2>Listado de Temas</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Tema</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Recursos</th>
+                    <th>Nivel Dificultad</th>
+                    <th>Asignatura</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="tema : ${temas}">
+                    <td th:text="${tema.id_Tema}">ID</td>
+                    <td th:text="${tema.nombreTema}">Nombre</td>
+                    <td th:text="${tema.descripcionTema}">Descripción</td>
+                    <td th:text="${tema.recursos}">Recursos</td>
+                    <td th:text="${tema.nivelDificultadTema}">Nivel</td>
+                    <!-- Si la asignatura está disponible se muestra su nombre, de lo contrario se muestra 'N/A' -->
+                    <td th:text="${tema.asignatura != null ? tema.asignatura.nombre : 'N/A'}">Asignatura</td>
+                    <td>
+                        <a th:href="@{'/vistas/temas/editar/' + ${tema.id_Tema}}">Editar</a> |
+                        <a th:href="@{'/vistas/temas/eliminar/' + ${tema.id_Tema}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/vistas/temas/crear">
+            <button>Crear Nuevo Tema</button>
+        </a>
+    </section>
+</body>
+</html>
+

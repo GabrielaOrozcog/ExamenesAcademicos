@@ -25,39 +25,69 @@ public class DepartamentoAcademicoCrud {
     @Autowired
     private DepartamentoAcademicoServicio departamentoAcademicoServicio;
 
+    
     @GetMapping
-    public List<DepartamentoAcademico> getAll() {
-        return departamentoAcademicoServicio.getAllDepartamentoAcademicos();
+    public ResponseEntity<?> getAllDepartamentosAcademicos() {
+       try {
+           List<DepartamentoAcademico> deptosAcademicos = departamentoAcademicoServicio.getAllDepartamentosAcademicos();
+           return ResponseEntity.ok(deptosAcademicos);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al obtener los departamentos academicos: " + e.getMessage());
+        }
     }
-
+    
+    
     @GetMapping("/{id}")
-    public ResponseEntity<DepartamentoAcademico> getById(@PathVariable Integer id) {
-        DepartamentoAcademico departamentoAcademico = departamentoAcademicoServicio.getDepartamentoAcademicoById(id);
-        if (departamentoAcademico != null) {
-            return ResponseEntity.ok(departamentoAcademico);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> getDepartamentoAcademicoById(@PathVariable Integer id) {
+        try {
+            DepartamentoAcademico deptoAcademico = departamentoAcademicoServicio.getDepartamentoAcademicoById(id);
+            return ResponseEntity.ok(deptoAcademico);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró el departamento academico con ID: " + id + ". " + e.getMessage());
         }
     }
 
     @PostMapping
-    public DepartamentoAcademico create(@RequestBody DepartamentoAcademico departamentoAcademico) {
-        return departamentoAcademicoServicio.createDepartamentoAcademico(departamentoAcademico);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<DepartamentoAcademico> update(@PathVariable Integer id, @RequestBody DepartamentoAcademico departamentoAcademicoDetails) {
-        DepartamentoAcademico updatedDepartamentoAcademico = departamentoAcademicoServicio.updateDepartamentoAcademico(id, departamentoAcademicoDetails);
-        if (updatedDepartamentoAcademico != null) {
-            return ResponseEntity.ok(updatedDepartamentoAcademico);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> createDepartamentoAcademico(@RequestBody DepartamentoAcademico departamentoAcademico) {
+        try {
+            DepartamentoAcademico nuevoDeptoAcademico = departamentoAcademicoServicio.createDepartamentoAcademico(departamentoAcademico);
+            return ResponseEntity.ok(nuevoDeptoAcademico);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Error al crear el departamento academico: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        departamentoAcademicoServicio.deleteDepartamentoAcademico(id);
-        return ResponseEntity.ok().build();
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateDepartamentoAcademico(@PathVariable Integer id, @RequestBody DepartamentoAcademico departamentoAcademicoDetails) {
+        try {
+            DepartamentoAcademico actualizado = departamentoAcademicoServicio.updateDepartamentoAcademico(id, departamentoAcademicoDetails);
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar el departamento academico: " + e.getMessage());
+        }
     }
+    
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteDepartamentoAcademico(@PathVariable Integer id) {
+        try {
+            departamentoAcademicoServicio.deleteDepartamentoAcademico(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar el departamento academico: " + e.getMessage());
+        }
+    }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarDepartamentosAcademicos() {
+    try {
+        Integer total = departamentoAcademicoServicio.contarDepartamentosAcademicos();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }

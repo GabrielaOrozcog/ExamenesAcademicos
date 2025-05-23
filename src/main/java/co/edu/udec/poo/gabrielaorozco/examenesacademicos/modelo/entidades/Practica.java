@@ -16,33 +16,33 @@ import lombok.Setter;
  *
  * @author Gabriela
  */
-
 @Getter
 @Setter
 @Data
 @Entity
 @Table(name = "practica", schema = "public")
 public class Practica {
-    
+
     @Id
     @NotEmpty(message = "el id de practica no puede estar vacio o ser nulo")
     @Column(name = "id_practica")
     private int idPractica;
-    
+
     @NotEmpty(message = "El título no puede estar vacío o ser nulo")
     @Column(name = "titulo")
     private String titulo;
-    
+
     @Column(name = "fecha_creacion")
     private Date fechaCreacion;
-    
+
     @NotEmpty(message = "El nivel de dificultad no puede estar vacío o ser nulo")
     @Column(name = "nivel_dificultad_practica")
     private String nivelDificultadPractica;
-    
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "profesor_practica",
-               joinColumns = @JoinColumn(name = "id_practica"),
-               inverseJoinColumns = @JoinColumn(name = "id_profesor"))
+            joinColumns = @JoinColumn(name = "id_practica"),
+            inverseJoinColumns = @JoinColumn(name = "id_profesor"))
     private List<Profesor> profesores;
+
 }

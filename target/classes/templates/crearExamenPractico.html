@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Examen Práctico</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Crear Examen Práctico</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/examenes-practicos/crear}" th:object="${examenPractico}" method="post">
+            <div>
+                <label>ID Examen:</label>
+                <input type="text" th:field="*{idExamen}" placeholder="Ingrese el ID del examen" />
+            </div>
+            <div>
+                <label>Fecha de Realización:</label>
+                <input type="date" th:field="*{fechaRealizacion}" />
+            </div>
+            <div>
+                <label>Grupo:</label>
+                <input type="text" th:field="*{grupo}" placeholder="Ingrese el grupo" />
+            </div>
+            <div>
+                <label>Tipo de Examen:</label>
+                <input type="text" th:field="*{tipoExamen}" placeholder="Ej.: Practico" />
+            </div>
+            <!-- Campos específicos de ExamenPractico -->
+            <div>
+                <label>Descripción del Examen Práctico:</label>
+                <textarea th:field="*{descripcionExamenPractico}" rows="3" placeholder="Ingrese la descripción"></textarea>
+            </div>
+            <div>
+                <label>Componente Laboratorio:</label>
+                <input type="number" step="0.01" th:field="*{componenteLaboratorio}" placeholder="Ingrese el valor" />
+            </div>
+            <div>
+                <label>Componente Eficiencia:</label>
+                <input type="number" step="0.01" th:field="*{componenteEficiencia}" placeholder="Ingrese el valor" />
+            </div>
+            <div>
+                <label>ID Práctica:</label>
+                <input type="text" th:field="*{practica.idPractica}" placeholder="Ingrese el ID de la práctica" />
+            </div>
+            <div>
+                <label>Grupal:</label>
+                <input type="checkbox" th:field="*{grupal}" />
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/examenes-practicos">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
+

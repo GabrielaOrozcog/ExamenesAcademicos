@@ -1,0 +1,14 @@
+@startuml
+:Docente:
+:Docente: --> (Listar todas las prácticas) 
+:Docente: --> (Consultar práctica por ID)
+:Docente: --> (Crear una práctica) 
+:Docente: --> (Actualizar una práctica)
+:Docente: --> (Eliminar una práctica)
+:Docente: --> (Contar prácticas registradas)
+
+(Crear una práctica) ..> (Consultar práctica por ID): include
+(Actualizar una práctica) ..> (Consultar práctica por ID): include
+(Eliminar una práctica) ..> (Consultar práctica por ID): include
+
+@enduml

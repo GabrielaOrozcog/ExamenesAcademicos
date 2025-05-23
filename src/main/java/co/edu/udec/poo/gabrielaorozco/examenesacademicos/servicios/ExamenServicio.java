@@ -14,13 +14,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Examen
 
 public interface ExamenServicio {
     
-    List<Examen> getAllExamenes();
+    public List<Examen> getAllExamenes() throws Exception;
     
-    Examen getExamenById(Integer id);
+    Examen getExamenById(Integer id) throws Exception;
     
-    Examen createExamen(Examen examen);
+    Examen createExamen(Examen examen) throws Exception;
     
-    Examen updateExamen(Integer id, Examen examenDetails);
+    Examen updateExamen(Integer id, Examen examenDetails) throws Exception;
     
-    void deleteExamen(Integer id);
+    void deleteExamen(Integer id) throws Exception;
+    
+    Integer contarExamenes() throws Exception;
 }

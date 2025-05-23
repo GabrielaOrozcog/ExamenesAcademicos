@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar exámenes)
+:Docentes: --> (Consultar examen por ID)
+:Docentes: --> (Crear examen)
+:Docentes: --> (Actualizar examen)
+:Docentes: --> (Eliminar examen)
+:Docentes: --> (Contar exámenes)
+
+(Crear examen) ..> (Consultar examen por ID): include
+(Actualizar examen) ..> (Consultar examen por ID): include
+(Eliminar examen) ..> (Consultar examen por ID): include
+
+@enduml

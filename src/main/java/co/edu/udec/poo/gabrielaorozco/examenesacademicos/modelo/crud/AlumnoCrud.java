@@ -25,40 +25,71 @@ public class AlumnoCrud {
     @Autowired
     private AlumnoServicio alumnoServicio;
 
+    
     @GetMapping
-    public List<Alumno> getAll() {
-        return alumnoServicio.getAllAlumnos();
+    public ResponseEntity<?> getAllAlumnos() {
+       try {
+           List<Alumno> alumnos = alumnoServicio.getAllAlumnos();
+           return ResponseEntity.ok(alumnos);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al obtener los alumnos: " + e.getMessage());
+        }
     }
-
+    
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Alumno> getById(@PathVariable Integer id) {
-        Alumno alumno = alumnoServicio.getAlumnoById(id);
-        if (alumno != null) {
+    public ResponseEntity<?> getAlumnoById(@PathVariable Integer id) {
+        try {
+            Alumno alumno = alumnoServicio.getAlumnoById(id);
             return ResponseEntity.ok(alumno);
-        } else {
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró el alumno con ID: " + id + ". " + e.getMessage());
         }
     }
 
+    
     @PostMapping
-    public Alumno create(@RequestBody Alumno alumno) {
-        return alumnoServicio.createAlumno(alumno);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Alumno> update(@PathVariable Integer id, @RequestBody Alumno alumnoDetails) {
-        Alumno updatedAlumno = alumnoServicio.updateAlumno(id, alumnoDetails);
-        if (updatedAlumno != null) {
-            return ResponseEntity.ok(updatedAlumno);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> createAlumno(@RequestBody Alumno alumno) {
+        try {
+            Alumno nuevoAlumno = alumnoServicio.createAlumno(alumno);
+            return ResponseEntity.ok(nuevoAlumno);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Error al crear el alumno: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        alumnoServicio.deleteAlumno(id);
-        return ResponseEntity.ok().build();
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAlumno(@PathVariable Integer id, @RequestBody Alumno alumnoDetails) {
+        try {
+            Alumno actualizado = alumnoServicio.updateAlumno(id, alumnoDetails);
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar el alumno: " + e.getMessage());
+        }
     }
+    
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAlumno(@PathVariable Integer id) {
+        try {
+            alumnoServicio.deleteAlumno(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar el alumno: " + e.getMessage());
+        }
+    }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarAlumnos() {
+    try {
+        Integer total = alumnoServicio.contarAlumnos();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }
 

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Examen</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Editar Examen</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/examenes/editar/{id}(id=${examen.idExamen})}" th:object="${examen}" method="post">
+            <div>
+                <label>ID Examen:</label>
+                <input type="text" th:field="*{idExamen}" readonly="readonly" />
+            </div>
+            <div>
+                <label>Alumno (ID):</label>
+                <input type="text" th:field="*{alumno.idAlumno}" placeholder="Ingrese el ID del alumno" />
+            </div>
+            <div>
+                <label>Grupo:</label>
+                <input type="text" th:field="*{grupo}" />
+            </div>
+            <div>
+                <label>Profesor (ID):</label>
+                <input type="text" th:field="*{profesor.idProfesor}" placeholder="Ingrese el ID del profesor" />
+            </div>
+            <div>
+                <label>Fecha de Realización:</label>
+                <input type="date" th:field="*{fechaRealizacion}" />
+            </div>
+            <div>
+                <label>Fecha de Creación:</label>
+                <input type="date" th:field="*{fechaCreacionExamen}" />
+            </div>
+            <div>
+                <label>Tipo de Examen:</label>
+                <input type="text" th:field="*{tipoExamen}" />
+            </div>
+            <div>
+                <label>Asignatura (ID):</label>
+                <input type="text" th:field="*{asignatura.idAsignatura}" />
+            </div>
+            <div>
+                <button type="submit">Actualizar</button>
+            </div>
+        </form>
+        <br/>
+        <a href="/vistas/examenes">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
+

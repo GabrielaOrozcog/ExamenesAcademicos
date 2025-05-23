@@ -14,13 +14,15 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Depart
 
 public interface DepartamentoAcademicoServicio {
     
-    List<DepartamentoAcademico> getAllDepartamentoAcademicos();
+    List<DepartamentoAcademico> getAllDepartamentosAcademicos() throws Exception;
     
-    DepartamentoAcademico getDepartamentoAcademicoById(Integer id);
+    DepartamentoAcademico getDepartamentoAcademicoById(Integer id) throws Exception;
     
-    DepartamentoAcademico createDepartamentoAcademico(DepartamentoAcademico departamentoAcademico);
+    DepartamentoAcademico createDepartamentoAcademico(DepartamentoAcademico departamentoAcademico) throws Exception;
     
-    DepartamentoAcademico updateDepartamentoAcademico(Integer id, DepartamentoAcademico departamentoAcademico);
+    DepartamentoAcademico updateDepartamentoAcademico(Integer id, DepartamentoAcademico departamentoAcademicoDetails) throws Exception;
     
-    void deleteDepartamentoAcademico(Integer id);
+    void deleteDepartamentoAcademico(Integer id) throws Exception;
+    
+    Integer contarDepartamentosAcademicos() throws Exception;
 }

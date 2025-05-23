@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Exámenes Prácticos</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Exámenes Prácticos</h1>
+    </header>
+    <section>
+        <h2>Listado</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Examen</th>
+                    <th>Fecha Realización</th>
+                    <th>Grupo</th>
+                    <th>Tipo Examen</th>
+                    <th>Descripción</th>
+                    <th>Componente Laboratorio</th>
+                    <th>Componente Eficiencia</th>
+                    <th>ID Práctica</th>
+                    <th>Grupal</th>
+                    <th>Nota Final</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="examen : ${examenPracticos}">
+                    <td th:text="${examen.idExamen}"></td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${examen.grupo}"></td>
+                    <td th:text="${examen.tipoExamen}"></td>
+                    <td th:text="${examen.descripcionExamenPractico}"></td>
+                    <td th:text="${examen.componenteLaboratorio}"></td>
+                    <td th:text="${examen.componenteEficiencia}"></td>
+                    <td th:text="${examen.practica != null ? examen.practica.idPractica : 'N/A'}"></td>
+                    <td>
+                        <span th:if="${examen.grupal}" >Sí</span>
+                        <span th:unless="${examen.grupal}" >No</span>
+                    </td>
+                    <td th:text="${examen.calcularNotaFinal()}"></td>
+                    <td>
+                        <a th:href="@{'/vistas/examenes-practicos/editar/' + ${examen.idExamen}}">Editar</a> |
+                        <a th:href="@{'/vistas/examenes-practicos/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/vistas/examenes-practicos/crear">
+            <button>Crear Nuevo Examen Práctico</button>
+        </a>
+    </section>
+</body>
+</html>

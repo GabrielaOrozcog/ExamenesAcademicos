@@ -15,4 +15,5 @@ import co.edu.udec.poo.gabrielaorozco.examenesacademicos.modelo.entidades.Alumno
 @Repository
 public interface AlumnoRepositorio extends JpaRepository<Alumno, Integer> {
     
+    
 }

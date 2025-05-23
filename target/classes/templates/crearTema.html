@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Tema</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Crear Tema</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/temas/crear}" th:object="${tema}" method="post">
+            <div>
+                <label>ID Tema:</label>
+                <input type="text" th:field="*{id_Tema}" placeholder="Ingrese el ID del tema" />
+            </div>
+            <div>
+                <label>Nombre del Tema:</label>
+                <input type="text" th:field="*{nombreTema}" placeholder="Ingrese el nombre del tema" />
+            </div>
+            <div>
+                <label>Descripción:</label>
+                <textarea th:field="*{descripcionTema}" placeholder="Ingrese la descripción" rows="3"></textarea>
+            </div>
+            <div>
+                <label>Recursos:</label>
+                <input type="text" th:field="*{recursos}" placeholder="Ingrese recursos (URLs, etc.)" />
+            </div>
+            <div>
+                <label>Nivel de Dificultad:</label>
+                <input type="text" th:field="*{nivelDificultadTema}" placeholder="Ingrese el nivel de dificultad" />
+            </div>
+            <div>
+                <label>Asignatura (ID):</label>
+                <!-- Aquí se asume que se debe ingresar el ID de la asignatura. En una solución completa, se podría usar un menú desplegable -->
+                <input type="text" th:field="*{asignatura.idAsignatura}" placeholder="Ingrese el ID de la asignatura" />
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br>
+        <a href="/vistas/temas">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
+

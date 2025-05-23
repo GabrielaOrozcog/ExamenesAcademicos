@@ -33,7 +33,7 @@ public class DepartamentoAcademico {
     private String nombre;
     
     // Relación: Un departamento tiene muchos profesores.
-    @OneToMany(mappedBy = "departamentoAcademico")
+    @OneToMany(mappedBy = "departamentoAcademico", fetch = FetchType.EAGER)
     private List<Profesor> profesores;
     
 }

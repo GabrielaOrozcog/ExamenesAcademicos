@@ -1,0 +1,15 @@
+@startuml
+:Administrador Academico:
+:Administrador Academico: --> (Listar todos los profesores)
+:Administrador Academico: --> (Buscar un profesor por ID)
+:Administrador Academico: --> (Registrar un nuevo profesor)
+:Administrador Academico: --> (Actualizar información de un profesor)
+:Administrador Academico: --> (Eliminar un profesor)
+:Administrador Academico: --> (Consultar el número de profesores)
+
+(Registrar un nuevo profesor) ..> (Buscar un profesor por ID): Include
+(Actualizar información de un profesor) ..> (Buscar un profesor por ID): Include
+(Eliminar un profesor) ..> (Buscar un profesor por ID): Include
+
+@enduml
+

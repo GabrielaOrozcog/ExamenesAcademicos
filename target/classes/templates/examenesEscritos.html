@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Exámenes Escritos</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Exámenes Escritos</h1>
+    </header>
+    <section>
+        <h2>Listado</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Examen</th>
+                    <th>Fecha Realización</th>
+                    <th>Grupo</th>
+                    <th>Número de Preguntas</th>
+                    <th>Componente Teórico</th>
+                    <th>Componente Redacción</th>
+                    <th>Nota Final</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="examen : ${examenes}">
+                    <td th:text="${examen.idExamen}">ID</td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}">Fecha</td>
+                    <td th:text="${examen.grupo}">Grupo</td>
+                    <td th:text="${examen.numeroPreguntas}"># Preguntas</td>
+                    <td th:text="${examen.componenteTeorico}">Componente Teórico</td>
+                    <td th:text="${examen.componenteRedaccion}">Componente Redacción</td>
+                    <td th:text="${examen.calcularNotaFinal()}">Nota Final</td>
+                    <td>
+                        <a th:href="@{'/vistas/examenes-escritos/editar/' + ${examen.idExamen}}">Editar</a> |
+                        <a th:href="@{'/vistas/examenes-escritos/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/vistas/examenes-escritos/crear">
+            <button>Crear Nuevo Examen Escrito</button>
+        </a>
+    </section>
+</body>
+</html>

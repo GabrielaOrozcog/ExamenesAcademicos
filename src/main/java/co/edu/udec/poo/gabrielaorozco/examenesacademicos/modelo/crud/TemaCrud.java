@@ -24,40 +24,71 @@ public class TemaCrud {
 
     @Autowired
     private TemaServicio temaServicio;
-
+    
+    
     @GetMapping
-    public List<Tema> getAll() {
-        return temaServicio.getAllTemas();
+    public ResponseEntity<?> getAllTemas() {
+       try {
+           List<Tema> temas = temaServicio.getAllTemas();
+           return ResponseEntity.ok(temas);
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al obtener los temas: " + e.getMessage());
+        }
     }
 
+    
     @GetMapping("/{id}")
-    public ResponseEntity<Tema> getById(@PathVariable Integer id) {
-        Tema tema = temaServicio.getTemaById(id);
-        if (tema != null) {
+    public ResponseEntity<?> getTemaById(@PathVariable Integer id) {
+        try {
+            Tema tema = temaServicio.getTemaById(id);
             return ResponseEntity.ok(tema);
-        } else {
-            return ResponseEntity.notFound().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró el tema con ID: " + id + ". " + e.getMessage());
         }
     }
 
+    
     @PostMapping
-    public Tema create(@RequestBody Tema tema) {
-        return temaServicio.createTema(tema);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<Tema> update(@PathVariable Integer id, @RequestBody Tema temaDetails) {
-        Tema updatedTema = temaServicio.updateTema(id, temaDetails);
-        if (updatedTema != null) {
-            return ResponseEntity.ok(updatedTema);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> createTema(@RequestBody Tema tema) {
+        try {
+            Tema nuevoTema = temaServicio.createTema(tema);
+            return ResponseEntity.ok(nuevoTema);
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Error al crear el tema : " + e.getMessage());
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        temaServicio.deleteTema(id);
-        return ResponseEntity.ok().build();
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateTema(@PathVariable Integer id, @RequestBody Tema temaDetails) {
+        try {
+            Tema actualizado = temaServicio.updateTema(id, temaDetails);
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar el tema : " + e.getMessage());
+        }
     }
+
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteTema(@PathVariable Integer id) {
+        try {
+            temaServicio.deleteTema(id);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar el tema : " + e.getMessage());
+        }
+    }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarTemas() {
+    try {
+        Integer total = temaServicio.contarTemas();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }

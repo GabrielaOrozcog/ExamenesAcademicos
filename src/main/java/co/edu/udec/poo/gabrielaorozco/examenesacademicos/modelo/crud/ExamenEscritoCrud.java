@@ -24,40 +24,70 @@ public class ExamenEscritoCrud {
     @Autowired
     private ExamenEscritoServicio examenEscritoServicio;
 
+    
     @GetMapping
-    public List<ExamenEscrito> getAll() {
-        return examenEscritoServicio.getAllExamenesEscritos();
-                
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ExamenEscrito> getById(@PathVariable Integer id) {
-        ExamenEscrito examenEscrito = examenEscritoServicio.getExamenEscritoById(id);
-        if (examenEscrito != null) {
-            return ResponseEntity.ok(examenEscrito);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> getAllExamenesEscritos() {
+        try {
+            List<ExamenEscrito> examenesEscritos = examenEscritoServicio.getAllExamenesEscritos();
+            return ResponseEntity.ok(examenesEscritos);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error al obtener los exámenes escritos: " + e.getMessage());
         }
     }
+    
+    
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getExamenEscritoById(@PathVariable Integer id) {
+        try {
+            ExamenEscrito examenEscrito = examenEscritoServicio.getExamenEscritoById(id);
+            return ResponseEntity.ok(examenEscrito);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("No se encontró el examen escrito con ID " + id + ": " + e.getMessage());
+        }
+    }
+    
 
     @PostMapping
-    public ExamenEscrito create(@RequestBody ExamenEscrito examenEscrito) {
-        return examenEscritoServicio.createExamenEscrito(examenEscrito);
-    }
-
-    @PutMapping("/{id}")
-    public ResponseEntity<ExamenEscrito> update(@PathVariable Integer id, @RequestBody ExamenEscrito examenEscritoDetails) {
-        ExamenEscrito updatedExamenEscrito = examenEscritoServicio.updateExamenEscrito(id, examenEscritoDetails);
-        if (updatedExamenEscrito != null) {
-            return ResponseEntity.ok(updatedExamenEscrito);
-        } else {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<?> createExamenEscrito(@RequestBody ExamenEscrito examenEscrito) {
+        try {
+            ExamenEscrito nuevoExamenEscrito = examenEscritoServicio.createExamenEscrito(examenEscrito);
+            return ResponseEntity.ok(nuevoExamenEscrito);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Error al crear examen escrito: " + e.getMessage());
         }
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable Integer id) {
-        examenEscritoServicio.deleteExamenEscrito(id);
-        return ResponseEntity.ok().build();
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateExamenEscrito(@PathVariable Integer id, @RequestBody ExamenEscrito examenEscritoDetails) {
+        try {
+            ExamenEscrito actualizado = examenEscritoServicio.updateExamenEscrito(id, examenEscritoDetails);
+            return ResponseEntity.ok(actualizado);
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al actualizar examen escrito: " + e.getMessage());
+        }
     }
+
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteExamenEscrito(@PathVariable Integer id) {
+        try {
+            examenEscritoServicio.deleteExamenEscrito(id);
+            return ResponseEntity.ok("Examen escrito eliminado exitosamente.");
+        } catch (Exception e) {
+            return ResponseEntity.status(404).body("Error al eliminar examen escrito: " + e.getMessage());
+        }
+    }
+    
+    
+    @GetMapping("/contar")
+    public ResponseEntity<Integer> contarExamenesEscritos() {
+    try {
+        Integer total = examenEscritoServicio.contarExamenesEscritos();
+        return ResponseEntity.ok(total);
+        } catch (Exception e) {
+        return ResponseEntity.status(500).body(null);
+        }
+    }
+
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Exámenes</title>
+    <link rel="stylesheet" href="/css/estilos.css" />
+</head>
+<body>
+    <header>
+        <h1>Listado de Exámenes</h1>
+    </header>
+    <section>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Examen</th>
+                    <th>Alumno (ID)</th>
+                    <th>Grupo</th>
+                    <th>Profesor (ID)</th>
+                    <th>Fecha Realización</th>
+                    <th>Fecha Creación</th>
+                    <th>Tipo Examen</th>
+                    <th>Asignatura (ID)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="examen : ${examenes}">
+                    <td th:text="${examen.idExamen}"></td>
+                    <td th:text="${examen.alumno != null ? examen.alumno.idAlumno : 'N/A'}"></td>
+                    <td th:text="${examen.grupo}"></td>
+                    <td th:text="${examen.profesor != null ? examen.profesor.idProfesor : 'N/A'}"></td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${#dates.format(examen.fechaCreacionExamen, 'yyyy-MM-dd')}"></td>
+                    <td th:text="${examen.tipoExamen}"></td>
+                    <td th:text="${examen.asignatura != null ? examen.asignatura.idAsignatura : 'N/A'}"></td>
+                    <td>
+                        <a th:href="@{'/vistas/examenes/editar/' + ${examen.idExamen}}">Editar</a> |
+                        <a th:href="@{'/vistas/examenes/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br/>
+        <a href="/vistas/examenes/crear">
+            <button>Crear Nuevo Examen</button>
+        </a>
+    </section>
+</body>
+</html>
+

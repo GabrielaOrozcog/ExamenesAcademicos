@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Listado de Profesores</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Listado de Profesores</h1>
+    </header>
+    <section>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID Profesor</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Cargo</th>
+                    <th>Departamento Académico</th>
+                    <th>Fecha Inicio Contrato</th>
+                    <th>Fecha Fin Contrato</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="profesor : ${profesores}">
+                    <td th:text="${profesor.id_Profesor}">ID</td>
+                    <td th:text="${profesor.nombre_Profesor}">Nombre</td>
+                    <td th:text="${profesor.email_Profesor}">Email</td>
+                    <td th:text="${profesor.telefono_Profesor}">Teléfono</td>
+                    <td th:text="${profesor.cargo}">Cargo</td>
+                    <td th:text="${profesor.departamentoAcademico != null ? profesor.departamentoAcademico.nombre : 'N/A'}">Departamento</td>
+                    <td th:text="${#dates.format(profesor.fecha_InicioContrato, 'yyyy-MM-dd')}">Inicio Contrato</td>
+                    <td th:text="${#dates.format(profesor.fecha_FinContrato, 'yyyy-MM-dd')}">Fin Contrato</td>
+                    <td>
+                        <a th:href="@{'/vistas/profesores/editar/' + ${profesor.id_Profesor}}">Editar</a> |
+                        <a th:href="@{'/vistas/profesores/eliminar/' + ${profesor.id_Profesor}}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="/vistas/profesores/crear">
+            <button>Crear Nuevo Profesor</button>
+        </a>
+    </section>
+</body>
+</html>
+

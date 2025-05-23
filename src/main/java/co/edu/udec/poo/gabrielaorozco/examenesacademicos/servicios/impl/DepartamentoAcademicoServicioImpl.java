@@ -22,32 +22,78 @@ public class DepartamentoAcademicoServicioImpl implements DepartamentoAcademicoS
     @Autowired
     private DepartamentoAcademicoRepositorio departamentoAcademicoRepository;
 
+   
     @Override
-    public List<DepartamentoAcademico> getAllDepartamentoAcademicos() {
-        return departamentoAcademicoRepository.findAll();
+    public List<DepartamentoAcademico> getAllDepartamentosAcademicos() throws Exception {
+    try {
+        List<DepartamentoAcademico> departamentoAcademico = departamentoAcademicoRepository.findAll();
+        if (departamentoAcademico.isEmpty()) {
+            throw new Exception("No se encontraron departamentos academicos registrados");
+        }
+        return departamentoAcademico;
+    } catch (Exception e) {
+        throw new Exception("Error al obtener la lista de departamentos academicos: " + e.getMessage(), e);
     }
-
-    @Override
-    public DepartamentoAcademico getDepartamentoAcademicoById(Integer id) {
-        return departamentoAcademicoRepository.findById(id).orElse(null);
-    }
-
-    @Override
-    public DepartamentoAcademico createDepartamentoAcademico(DepartamentoAcademico departamentoAcademico) {
-        return departamentoAcademicoRepository.save(departamentoAcademico);
-    }
-
-    @Override
-    public DepartamentoAcademico updateDepartamentoAcademico(Integer id, DepartamentoAcademico departamentoAcademicoDetails) {
-        return departamentoAcademicoRepository.findById(id).map(departamentoAcademico -> {
-            departamentoAcademico.setNombre(departamentoAcademicoDetails.getNombre());
-            return departamentoAcademicoRepository.save(departamentoAcademico);
-        }).orElse(null);  
-    }
-
-    @Override
-    public void deleteDepartamentoAcademico(Integer id) {
-        departamentoAcademicoRepository.deleteById(id);
     }
     
+    
+    @Override
+    public DepartamentoAcademico getDepartamentoAcademicoById(Integer id) throws Exception {
+    try {
+        return departamentoAcademicoRepository.findById(id)
+                .orElseThrow(() -> new Exception("Departamento academico no encontrado con ID: " + id));
+    } catch (Exception e) {
+        throw new Exception("Error al buscar departamento academico: " + e.getMessage(), e);
+    }
+    }
+    
+    @Override
+    public DepartamentoAcademico createDepartamentoAcademico(DepartamentoAcademico departamentoAcademico) throws Exception {
+    try {
+        if (departamentoAcademicoRepository.existsById(departamentoAcademico.getIdDepartamentoAcademico())) {
+            throw new Exception("El departamento academico con ID " + departamentoAcademico.getIdDepartamentoAcademico() + " ya existe");
+        }
+        return departamentoAcademicoRepository.save(departamentoAcademico);
+    } catch (Exception e) {
+        throw new Exception("Error al crear departamento academico: " + e.getMessage(), e);
+    }
+    }
+
+    
+    @Override
+    public DepartamentoAcademico updateDepartamentoAcademico(Integer id, DepartamentoAcademico departamentoAcademicoDetails) throws Exception {
+    try {
+        DepartamentoAcademico departamentoAcademico = departamentoAcademicoRepository.findById(id)
+                              .orElseThrow(() -> new Exception("Departamento academico no encontrado"));
+        
+        departamentoAcademico.setNombre(departamentoAcademicoDetails.getNombre());
+        return departamentoAcademicoRepository.save(departamentoAcademico);
+        
+    } catch (Exception e) {
+        throw new Exception("Error actualizando departamento academico: " + e.getMessage(), e);
+    }
+    }
+    
+    @Override
+    public void deleteDepartamentoAcademico(Integer id) throws Exception {
+    try {
+        departamentoAcademicoRepository.findById(id).orElseThrow(() -> 
+            new Exception("El departamento academico con ID " + id + " no encontrado"));
+        departamentoAcademicoRepository.deleteById(id);
+    } catch (Exception e) {
+        throw new Exception("Error eliminando departamento academico: " + e.getMessage());
+    }
+    }
+    
+    
+    @Override
+    public Integer contarDepartamentosAcademicos() throws Exception {
+    try {
+        long total = departamentoAcademicoRepository.count();
+        return Math.toIntExact(total); 
+        } catch (Exception e) {
+        throw new Exception("Error al contar los departamentos : " + e.getMessage(), e);
+        }
+    }
+  
 }

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Profesor</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Crear Profesor</h1>
+    </header>
+    <section>
+        <form th:action="@{/vistas/profesores/crear}" th:object="${profesor}" method="post">
+            <div>
+                <label>ID Profesor:</label>
+                <input type="text" th:field="*{id_Profesor}" placeholder="Ingrese el ID" />
+            </div>
+            <div>
+                <label>Nombre Profesor:</label>
+                <input type="text" th:field="*{nombre_Profesor}" placeholder="Ingrese el nombre" />
+            </div>
+            <div>
+                <label>Email Profesor:</label>
+                <input type="email" th:field="*{email_Profesor}" placeholder="Ingrese el email" />
+            </div>
+            <div>
+                <label>Teléfono:</label>
+                <input type="number" th:field="*{telefono_Profesor}" placeholder="Ingrese el teléfono" />
+            </div>
+            <div>
+                <label>Cargo:</label>
+                <input type="text" th:field="*{cargo}" placeholder="Ingrese el cargo" />
+            </div>
+            <div>
+                <label>Departamento Académico (ID):</label>
+                <input type="text" th:field="*{departamentoAcademico.idDepartamentoAcademico}" placeholder="Ingrese el ID del departamento" />
+            </div>
+            <div>
+                <label>Fecha Inicio Contrato:</label>
+                <input type="date" th:field="*{fecha_InicioContrato}" />
+            </div>
+            <div>
+                <label>Fecha Fin Contrato:</label>
+                <input type="date" th:field="*{fecha_FinContrato}" />
+            </div>
+            <div>
+                <button type="submit">Guardar</button>
+            </div>
+        </form>
+        <br>
+        <a href="/vistas/profesores">
+            <button>Volver a la Lista</button>
+        </a>
+    </section>
+</body>
+</html>
+

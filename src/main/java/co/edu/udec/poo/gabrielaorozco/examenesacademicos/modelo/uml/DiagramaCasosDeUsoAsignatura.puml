@@ -1,0 +1,14 @@
+@startuml
+:Docentes:
+:Docentes: --> (Listar todas las asignaturas)
+:Docentes: --> (Buscar una asignatura por ID)
+:Docentes: --> (Registrar una nueva asignatura)
+:Docentes: --> (Actualizar info de una asignatura)
+:Docentes: --> (Eliminar una asignatura)
+:Docentes: --> (Consultar el número de asignaturas)
+
+(Registrar una nueva asignatura) ..> (Buscar una asignatura por ID): include
+(Actualizar info de una asignatura) ..> (Buscar una asignatura por ID): include
+(Eliminar una asignatura) ..> (Buscar una asignatura por ID): include
+
+@enduml
