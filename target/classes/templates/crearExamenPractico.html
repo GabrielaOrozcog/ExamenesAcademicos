@@ -3,60 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Crear Examen Práctico</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Crear Examen Práctico</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Crear Examen Práctico</h1>
     </header>
-    <section>
+    <section class="container">
         <form th:action="@{/vistas/examenes-practicos/crear}" th:object="${examenPractico}" method="post">
-            <div>
-                <label>ID Examen:</label>
-                <input type="text" th:field="*{idExamen}" placeholder="Ingrese el ID del examen" />
+            <div class="mb-3">
+                <label for="idExamen" class="form-label">ID Examen</label>
+                <input type="text" id="idExamen" th:field="*{idExamen}" class="form-control" placeholder="Ingrese el ID" required>
             </div>
-            <div>
-                <label>Fecha de Realización:</label>
-                <input type="date" th:field="*{fechaRealizacion}" />
+            <div class="mb-3">
+                <label for="descripcionExamenPractico" class="form-label">Descripción</label>
+                <textarea id="descripcionExamenPractico" th:field="*{descripcionExamenPractico}" class="form-control" rows="3" placeholder="Ingrese la descripción" required></textarea>
             </div>
-            <div>
-                <label>Grupo:</label>
-                <input type="text" th:field="*{grupo}" placeholder="Ingrese el grupo" />
+            <div class="mb-3">
+                <label for="componenteLaboratorio" class="form-label">Componente Laboratorio</label>
+                <input type="number" step="0.01" id="componenteLaboratorio" th:field="*{componenteLaboratorio}" class="form-control" required>
             </div>
-            <div>
-                <label>Tipo de Examen:</label>
-                <input type="text" th:field="*{tipoExamen}" placeholder="Ej.: Practico" />
+            <div class="mb-3">
+                <label for="componenteEficiencia" class="form-label">Componente Eficiencia</label>
+                <input type="number" step="0.01" id="componenteEficiencia" th:field="*{componenteEficiencia}" class="form-control" required>
             </div>
-            <!-- Campos específicos de ExamenPractico -->
-            <div>
-                <label>Descripción del Examen Práctico:</label>
-                <textarea th:field="*{descripcionExamenPractico}" rows="3" placeholder="Ingrese la descripción"></textarea>
+            <div class="mb-3">
+                <label for="grupal" class="form-label">Grupal</label>
+                <input type="checkbox" id="grupal" th:field="*{grupal}" class="form-check-input">
             </div>
-            <div>
-                <label>Componente Laboratorio:</label>
-                <input type="number" step="0.01" th:field="*{componenteLaboratorio}" placeholder="Ingrese el valor" />
-            </div>
-            <div>
-                <label>Componente Eficiencia:</label>
-                <input type="number" step="0.01" th:field="*{componenteEficiencia}" placeholder="Ingrese el valor" />
-            </div>
-            <div>
-                <label>ID Práctica:</label>
-                <input type="text" th:field="*{practica.idPractica}" placeholder="Ingrese el ID de la práctica" />
-            </div>
-            <div>
-                <label>Grupal:</label>
-                <input type="checkbox" th:field="*{grupal}" />
-            </div>
-            <div>
-                <button type="submit">Guardar</button>
-            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="/vistas/examenes-practicos" class="btn btn-secondary">Cancelar</a>
         </form>
-        <br/>
-        <a href="/vistas/examenes-practicos">
-            <button>Volver a la Lista</button>
-        </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
-

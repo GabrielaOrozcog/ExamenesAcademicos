@@ -3,56 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <title>Listado de Exámenes Prácticos</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
+    <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <body>
-    <header>
-        <h1>Exámenes Prácticos</h1>
+    <header class="mb-3">
+        <h1 class="text-center">Listado de Exámenes Prácticos</h1>
     </header>
-    <section>
-        <h2>Listado</h2>
-        <table border="1">
+    <section class="container">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>ID Examen</th>
-                    <th>Fecha Realización</th>
+                    <th>Alumno (ID)</th>
                     <th>Grupo</th>
+                    <th>Profesor (ID)</th>
+                    <th>Fecha Realización</th>
                     <th>Tipo Examen</th>
                     <th>Descripción</th>
-                    <th>Componente Laboratorio</th>
-                    <th>Componente Eficiencia</th>
-                    <th>ID Práctica</th>
+                    <th>Laboratorio</th>
+                    <th>Eficiencia</th>
                     <th>Grupal</th>
-                    <th>Nota Final</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="examen : ${examenPracticos}">
-                    <td th:text="${examen.idExamen}"></td>
-                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}"></td>
-                    <td th:text="${examen.grupo}"></td>
-                    <td th:text="${examen.tipoExamen}"></td>
-                    <td th:text="${examen.descripcionExamenPractico}"></td>
-                    <td th:text="${examen.componenteLaboratorio}"></td>
-                    <td th:text="${examen.componenteEficiencia}"></td>
-                    <td th:text="${examen.practica != null ? examen.practica.idPractica : 'N/A'}"></td>
+                <tr th:each="examen : ${examenesPracticos}">
+                    <td th:text="${examen.idExamen}">ID</td>
+                    <td th:text="${examen.alumno != null ? examen.alumno.idAlumno : 'N/A'}">Alumno</td>
+                    <td th:text="${examen.grupo}">Grupo</td>
+                    <td th:text="${examen.profesor != null ? examen.profesor.idProfesor : 'N/A'}">Profesor</td>
+                    <td th:text="${#dates.format(examen.fechaRealizacion, 'yyyy-MM-dd')}">Fecha</td>
+                    <td th:text="${examen.tipoExamen}">Tipo</td>
+                    <td th:text="${examen.descripcionExamenPractico}">Descripción</td>
+                    <td th:text="${examen.componenteLaboratorio}">Laboratorio</td>
+                    <td th:text="${examen.componenteEficiencia}">Eficiencia</td>
+                    <td th:text="${examen.grupal ? 'Sí' : 'No'}">Grupal</td>
                     <td>
-                        <span th:if="${examen.grupal}" >Sí</span>
-                        <span th:unless="${examen.grupal}" >No</span>
-                    </td>
-                    <td th:text="${examen.calcularNotaFinal()}"></td>
-                    <td>
-                        <a th:href="@{'/vistas/examenes-practicos/editar/' + ${examen.idExamen}}">Editar</a> |
-                        <a th:href="@{'/vistas/examenes-practicos/eliminar/' + ${examen.idExamen}}">Eliminar</a>
+                        <a th:href="@{'/vistas/examenes-practicos/editar/' + ${examen.idExamen}}" class="btn btn-primary btn-sm">Editar</a>
+                        <a th:href="@{'/vistas/examenes-practicos/eliminar/' + ${examen.idExamen}}" class="btn btn-danger btn-sm">Eliminar</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-        <br/>
         <a href="/vistas/examenes-practicos/crear">
-            <button>Crear Nuevo Examen Práctico</button>
+            <button type="button" class="btn btn-success">Crear Nuevo Examen Práctico</button>
         </a>
     </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>

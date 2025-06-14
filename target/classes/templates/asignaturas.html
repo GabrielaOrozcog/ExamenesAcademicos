@@ -1,45 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<<<<<<< HEAD
-    <meta charset="UTF-8">
-    <title>Lista de Asignaturas</title>
-    <link rel="stylesheet" href="/css/estilos.css" />
-</head>
-<body>
-    <header>
-        <h1>Gestión de Asignaturas</h1>
-    </header>
-    <section>
-        <h2>Listado de Asignaturas</h2>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Acciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="asignatura : ${asignaturas}">
-                    <td th:text="${asignatura.idAsignatura}">ID</td>
-                    <td th:text="${asignatura.nombre}">Nombre</td>
-                    <td th:text="${asignatura.descripcion}">Descripción</td>
-                    <td>
-                        <a th:href="@{'/vistas/asignaturas/editar/' + ${asignatura.idAsignatura}}">Editar</a> |
-                        <a th:href="@{'/vistas/asignaturas/eliminar/' + ${asignatura.idAsignatura}}">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <br/>
-        <a href="/vistas/asignaturas/crear"><button>Crear Nueva Asignatura</button></a>
-    </section>
-</body>
-</html>
-
-=======
   <meta charset="UTF-8">
   <title>Listado de Asignaturas</title>
   <link rel="stylesheet" href="/css/estilos.css">
@@ -89,4 +50,3 @@
 </html>
 
 
->>>>>>> 9851603 (add Vistas, ttemplates and css)

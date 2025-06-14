@@ -1,137 +1,56 @@
-<<<<<<< HEAD
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\ExamenPracticoCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\PracticaPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\PracticaServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\AlumnoPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\DepartamentoAcademicoRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\ExamenEscrito.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\AsignaturaRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Alumno.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\PracticaCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\TemaServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\PracticaRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\DepartamentoAcademico.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\ExamenPracticoVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\TemaVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\DepartamentoAcademicoVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\PracticaVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\AlumnoServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\ExamenEscritoCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Examen.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenPracticoServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\ExamenCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ProfesorServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\ExamenPractico.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\DepartamentoAcademicoServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\AlumnoRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\CursoServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenPracticoRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\AsignaturaCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\CursoRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Practica.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\AlumnoServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Tema.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\ProfesorVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\TemaRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\AsignaturaPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenEscritoRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\PracticaServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ProfesorRepositorio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\CursoPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenPracticoServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\ExamenVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\ProfesorCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\DepartamentoAcademicoPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\TemaCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\AsignaturaServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\config\JpaConfig.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Profesor.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\AlumnoVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\DepartamentoAcademicoServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\ExamenEscritoVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ExamenPracticoPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\TemaPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\CursoServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ProfesorServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ExamenPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\AlumnoCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenEscritoServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ProfesorPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ExamenEscritoPrueba.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenEscritoServicio.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\AsignaturaVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\CursoCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\DepartamentoAcademicoCrud.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Asignatura.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Curso.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ExamenesAcademicos.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\AsignaturaServicioImpl.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\CursoVistaControlador.java
-D:\mi_entorno_java\7502420036_gabriela_orozco_poo_act_1_2025-1\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\TemaServicio.java
-=======
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/AsignaturaVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/CursoServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/ExamenesAcademicos.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/AsignaturaRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/CursoRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/DepartamentoAcademicoServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/ExamenEscritoVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/ExamenPracticoVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Alumno.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/AlumnoVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/AsignaturaServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Tema.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/ExamenPracticoServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/ProfesorRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/AlumnoCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/ExamenEscritoRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/PracticaCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/TemaCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/DepartamentoAcademicoRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/CursoCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/ExamenCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Practica.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/ExamenVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/ExamenEscritoServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/PracticaServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/PracticaVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/ProfesorServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/DepartamentoAcademicoVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/ExamenServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/DepartamentoAcademicoServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/ProfesorCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/CursoVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Curso.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/PracticaServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/AlumnoRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/AsignaturaServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/ExamenEscritoCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/ExamenPractico.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/ProfesorVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/ExamenPracticoCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/config/JpaConfig.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/AlumnoServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/PracticaRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/DepartamentoAcademicoCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/DepartamentoAcademico.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/ProfesorServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/AsignaturaCrud.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/ExamenRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Examen.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Profesor.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/ExamenServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/ExamenEscrito.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/entidades/Asignatura.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/TemaServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/AlumnoServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/ExamenEscritoServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/CursoServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/TemaRepositorio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/TemaServicio.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/servicios/impl/ExamenPracticoServicioImpl.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/vistas/TemaVistaControlador.java
-/home/torrestr/NetBeansProjects/ExamenesAcademicos/src/main/java/co/edu/udec/poo/gabrielaorozco/examenesacademicos/modelo/crud/repositorio/ExamenPracticoRepositorio.java
->>>>>>> 9851603 (add Vistas, ttemplates and css)
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Practica.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\AlumnoController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Curso.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\PracticaController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\CursoServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Tema.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\gui\VentanaGestionarProfesor.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\AlumnoServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\TemaController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\config\JpaConfig.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\ExamenController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Asignatura.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\AlumnoRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\ExamenPractico.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\TemaRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\gui\VentanaPrincipal.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\ExamenesAcademicos.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\ExamenEscritoController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\AlumnoServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\AsignaturaServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\gui\VentanaListarAlumnos.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\TemaServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\ExamenEscrito.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenPracticoServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\AsignaturaRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenPracticoServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Alumno.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ProfesorServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\DepartamentoAcademicoServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\DepartamentoAcademicoServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenPracticoRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Profesor.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\TemaServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ProfesorServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\ProfesorController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\DepartamentoAcademico.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\PracticaServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ProfesorRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\CursoRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\impl\ExamenEscritoServicioImpl.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\DepartamentoAcademicoController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenEscritoRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\vistas\gui\VentanaGestionarAlumno.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\DepartamentoAcademicoRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\entidades\Examen.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\CursoController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\CursoServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\PracticaRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\ExamenPracticoController.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\crud\repositorio\ExamenRepositorio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\ExamenEscritoServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\AsignaturaServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\servicios\PracticaServicio.java
+D:\backup examenes academicos spring\ExamenesAcademicos\src\main\java\co\edu\udec\poo\gabrielaorozco\examenesacademicos\modelo\controlador\AsignaturaController.java
